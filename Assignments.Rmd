@@ -1,0 +1,146 @@
+---
+title: "Assignments"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '1'
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
+    toc_depth: 1
+---
+---
+title: "Assignments"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
+    toc_depth: 1
+  pdf_document:
+    toc: no
+    toc_depth: '1'
+---
+
+
+
+# Assignment 1
+
+**Collaborators: Carolina Herrera Figueroa. **
+
+
+### Problem 1 
+
+Install the datasets package on the console below and load the data
+
+```{r}
+dat<-USArrests
+
+```
+
+Load the USArrests dataset and rename it `dat`. Note that this dataset comes with R, in the package datasets, so there's no need to load data from your computer. Why is it useful to rename the dataset?
+
+Answer: It is useful to rename the data set for convenience and easy accessibility. 
+```{r}
+USArrests
+dat<-USArrests
+
+
+```
+
+### Problem 2
+
+List the variables contained in the dataset:
+ 
+The four variables within the dataset are Murder, Assault, Urbanpop and Rape
+
+### Problem 3 
+
+What type of variable (from the DVB chapter) is `Murder`? 
+
+Answer: categorical
+
+What R Type of variable is it?
+
+Answer: character
+
+
+### Problem 4
+
+What information is contained in this dataset, in general? What do the numbers mean? 
+
+Answer: The data set shows the arrest rate per 100,000 in the US in 1973. The rows show each state and the columns show the type of arrest. Each number shows the amount of arrests of that type within that state.  
+
+### Problem 5
+
+Draw a histogram of `Murder` with proper labels and title.
+
+I chose to do a bar chart instead due to the categorical nature of the values. 
+
+```{r}
+  state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest rate for Murder per 100,000", 
+    main = "Arrest rate for Murder in the United States in 1973")
+```
+
+
+### Problem 6
+
+Please summarize `Murder` quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?
+
+Answer: The mean for murder is 7.888 and the mean for murder is 7.250. Mean is the average of the data (that is: if you were to add up all of the values then divide by the amount of values present). Median is the middle value (half of the values are above and half are below). If the data is well distributed, mean and median will be similar or the same, but the major differences occur when there are outliers: mean is impacted by outliers whereas median is not. In this data seet, mean and median appear rather similar. Quartiles are the data broken up into 4 parts. R gives the 1st quartile to give a sense of the values up until 25% of the data and the 3rd quartile to give values up until 75% of the data. 
+
+### Problem 7
+
+Repeat the same steps you followed for `Murder`, for the variables `Assault` and `Rape`. Now plot all three histograms together. You can do this by using the command `par(mfrow=c(3,1))` and then plotting each of the three. 
+
+```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+  state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = "Arrest rate for assault per 100,000", 
+    main = "Arrest Rate for Assault in the United States in 1973")
+
+ state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest rate for Rape per 100,000", 
+    main = "Arrest Rate for Rape in the United States in 1973")
+```
+
+```{r}
+   par(mfrow=c(3,1))
+     state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest rate for Murder per 100,000", 
+    main = "Arrest rate for Murder in the United States in 1973")
+
+state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = "Arrest rate for assault per 100,000", 
+    main = "Arrest Rate for Assault in the United States in 1973")
+
+ state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest rate for Rape per 100,000", 
+    main = "Arrest Rate for Rape in the United States in 1973")
+```
+
+
+What does the command par do, in your own words (you can look this up by asking R `?par`)?
+
+Answer: Command par allows for multiple graphs to be plotted together. This command makes this possible by defining parameters. 
+
+What can you learn from plotting the histograms together?
+
+Answer: By plotting the histograms together it allows us to visually compare the rates for each. While it is useful to compare the numbers when looking at the table, plotting the values together allows for visual comparison. 
+  
+### Problem 8
+
+What does the given code do? Explain what each line is doing.
+
+Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range 
+
+$$\\[2in]$$
+
+
+
+
+
+
