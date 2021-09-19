@@ -14,3 +14,8 @@ names(dat)
 dat$state <- tolower(rownames(USArrests))
 
 hist(dat$murder, main="Histogram of Murder", xlab="State", ylab="Arrests per 100,000")
+
+install.packages('tinytex')
+
+
+
