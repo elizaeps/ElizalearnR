@@ -72,7 +72,7 @@ Answer: character
 
 What information is contained in this dataset, in general? What do the numbers mean? 
 
-Answer: The data set shows the arrest rate per 100,000 in the US in 1973. The rows show each state and the columns show the type of arrest. Each number shows the amount of arrests of that type within that state.  
+Answer: The data set shows the arrest rate per 100,000 in the US in 1973. The rows show each state and the columns show the type of arrest. Each number shows the amount of arrests of that type within that state per 100,000.  
 
 ### Problem 5
 
