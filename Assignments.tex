@@ -338,6 +338,214 @@ The first line tells R that you will be making a heat map, arranging by
 state and filling with arrests for murder rates. The next line sets up
 the map itself separating by state and the final line expands the range
 
-\[\\[2in]\]
+\[\\[2in]\] \# Assignment 2
+
+\textbf{Collaborators: Carolina Herrera Figueroa. }
+
+\hypertarget{problem-1-load-data}{%
+\subsection{Problem 1: Load data}\label{problem-1-load-data}}
+
+Set your working directory to the folder where you downloaded the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"/Users/elizaepstein/Desktop/testgithub/ElizalearnR"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Read the data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file =} \StringTok{'dat.nsduh.small.1.csv'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+What are the dimensions of the dataset?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "mjage"     "cigage"    "iralcage"  "age2"      "sexatract" "speakengl"
+## [7] "irsex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 171
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ncol}\NormalTok{(dat) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7
+\end{verbatim}
+
+Answer: There are 7 columns and 171 rows.
+
+\hypertarget{problem-2-variables}{%
+\subsection{Problem 2: Variables}\label{problem-2-variables}}
+
+Describe the variables in the dataset.
+
+Answer: The variables in this dataset are the age that an individual
+began smoking cigarettes, the age they began drinking alcohol, their
+age, their sexual attraction, whether they speak english and their sex.
+
+What is this dataset about? Who collected the data, what kind of sample
+is it, and what was the purpose of generating the data?
+
+Answer: This data set shows the trends in substance abuse by age, sex,
+sexual attraction and their english language proficiency. This data was
+collected through the National Survey of Drug Use and Health; it is a
+sample of the first 1,000 individuals of the survey. The purpose of this
+data was to analyze trends in substance abuse. While it is not stated,
+these trends may be used to further understand which individuals to
+target for treatment.
+
+\hypertarget{problem-3-age-and-gender}{%
+\subsection{Problem 3: Age and gender}\label{problem-3-age-and-gender}}
+
+What is the age distribution of the sample like? Make sure you read the
+codebook to know what the variable values mean.
+
+Answer: The age distribution starts from 12 and goes to 65+. The
+codebook explains how each age is labelled a number, so ``17''
+represents individuals who are 65 or older.
+
+Do you think this age distribution representative of the US population?
+Why or why not?
+
+Answer: I do believe that the age distribution is representative of the
+US population because it covers all ages twelve and above. Due to the
+fact that this survey is questioning the ages someone began using
+substances, it is reasonable that it begins at 12.
+
+Is the sample balanced in terms of gender? If not, are there more
+females or males?
+
+Answer: I believe the sample is mostly balanced in terms of gender, but
+there are slightly more females. As seen in the codebook, the sample
+consists of 47.72\% male and 52.28\% females.
+
+Use this code to draw a stacked bar plot to view the relationship
+between sex and age. What can you conclude from this plot?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab.agesex <-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{irsex, dat}\OperatorTok{$}\NormalTok{age2)}
+\KeywordTok{barplot}\NormalTok{(tab.agesex,}
+        \DataTypeTok{main =} \StringTok{"Stacked barchart"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"Age category"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Frequency"}\NormalTok{,}
+        \DataTypeTok{legend.text =} \KeywordTok{rownames}\NormalTok{(tab.agesex),}
+        \DataTypeTok{beside =} \OtherTok{FALSE}\NormalTok{) }\CommentTok{# Stacked bars (default)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Answer: This plot shows the frequency of sex of the respondent by age.
+For most of the younger age groups there seems to be more female
+respondents then the group between eight to twelve show more male
+respondents. Group 15 had the most respondents and seems to show a
+pretty even split between gendeers.
+
+\hypertarget{problem-4-substance-use}{%
+\subsection{Problem 4: Substance use}\label{problem-4-substance-use}}
+
+For which of the three substances included in the dataset (marijuana,
+alcohol, and cigarettes) do individuals tend to use the substance
+earlier?
+
+Answer: Of the three substances included individuals tend to use alcohol
+the youngest.
+
+\hypertarget{problem-5-sexual-attraction}{%
+\subsection{Problem 5: Sexual
+attraction}\label{problem-5-sexual-attraction}}
+
+What does the distribution of sexual attraction look like? Is this what
+you expected?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts<-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{sexatract)}
+\KeywordTok{barplot}\NormalTok{(counts,}\DataTypeTok{main=} \StringTok{"Sexual Attraction"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"categories"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Answer: The distribution of sexual attraction is heavily weighted
+towards number 1 which indicated heterosexuality. I was not surprised by
+there being the greatest weight on heterosexuality, but I was slightly
+surprised quite how extreme the difference is.
+
+What is the distribution of sexual attraction by gender?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts <-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{irsex, dat}\OperatorTok{$}\NormalTok{sexatract)}
+\KeywordTok{barplot}\NormalTok{(counts, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Answer: The distribution of sexual attraction by gender is intriguing to
+me because the first group (strongly heterosexual) appers mostly
+weighted towards males. The group showing bisexuality is heavily
+weighted towards females. The group identifying as homosexual is mostly
+male. The groups not knowing or leaving blank are all female and the
+group skipping the question is mostly male.
+
+\hypertarget{problem-6-english-speaking}{%
+\subsection{Problem 6: English
+speaking}\label{problem-6-english-speaking}}
+
+What does the distribution of English speaking look like in the sample?
+Is this what you might expect for a random sample of the US population?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts<-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{speakengl)}
+\KeywordTok{barplot}\NormalTok{(counts,}\DataTypeTok{main=} \StringTok{"English Language Proficiency"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"categories"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+Answer: The distribution of english speaking proficiency is heavily
+weighted towards the number 1 which indicates being able to speak
+english very well. I was not surpsied by this within the sample
+
+Are there more English speaker females or males?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts <-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{irsex, dat}\OperatorTok{$}\NormalTok{speakengl)}
+\KeywordTok{barplot}\NormalTok{(counts, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"purple"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+Answer: For those that speak english very well there is a somewhat even
+split between the sexes, but there are overall more females. That said,
+there are more males than females who answered that they speak english
+``well''
 
 \end{document}

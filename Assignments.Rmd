@@ -1,6 +1,9 @@
 ---
 title: "Assignments"
 output:
+  word_document:
+    toc: yes
+    toc_depth: '1'
   html_document:
     toc: yes
     toc_float: yes
@@ -138,6 +141,128 @@ What does the given code do? Explain what each line is doing.
 Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range 
 
 $$\\[2in]$$
+# Assignment 2
+
+**Collaborators: Carolina Herrera Figueroa. **
+
+## Problem 1: Load data
+
+Set your working directory to the folder where you downloaded the data.
+
+```{r}
+setwd("/Users/elizaepstein/Desktop/testgithub/ElizalearnR")
+
+```
+
+Read the data
+
+```{r}
+dat <- read.csv(file = 'dat.nsduh.small.1.csv')
+
+```
+
+What are the dimensions of the dataset? 
+
+```{r}
+names(dat)
+nrow(dat)
+ncol(dat) 
+```
+
+Answer: There are 7 columns and 171 rows. 
+
+## Problem 2: Variables
+
+Describe the variables in the dataset.
+
+Answer: The variables in this dataset are the age that an individual began smoking cigarettes, the age they began drinking alcohol, their age, their sexual attraction, whether they speak english and their sex. 
+
+What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
+
+Answer: This data set shows the trends in substance abuse by age, sex, sexual attraction and their english language proficiency. This data was collected through the National Survey of Drug Use and Health; it is a sample of the first 1,000 individuals of the survey. The purpose of this data was to analyze trends in substance abuse. While it is not stated, these trends may be used to further understand which individuals to target for treatment.
+
+## Problem 3: Age and gender
+
+What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
+
+Answer: The age distribution starts from 12 and goes to 65+. The codebook explains how each age is labelled a number, so "17" represents individuals who are 65 or older. 
+
+Do you think this age distribution representative of the US population? Why or why  not?
+
+Answer: I do believe that the age distribution is representative of the US population because it covers all ages twelve and above. Due to the fact that this survey is questioning the ages someone began using substances, it is reasonable that it begins at 12. 
+
+Is the sample balanced in terms of gender? If not, are there more females or males?
+
+Answer: I believe the sample is mostly balanced in terms of gender, but there are slightly more females. As seen in the codebook, the sample consists of 47.72% male and 52.28% females. 
+
+Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
+
+```{r}
+tab.agesex <- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = "Stacked barchart",
+        xlab = "Age category", ylab = "Frequency",
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)
+```
+
+
+Answer: This plot shows the frequency of sex of the respondent by age. For most of the younger age groups there seems to be more female respondents then the group between eight to twelve show more male respondents. Group 15 had the most respondents and seems to show a pretty even split between gendeers.  
+
+## Problem 4: Substance use
+
+For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
+
+
+Answer: Of the three substances included individuals tend to use alcohol the youngest.
+
+
+## Problem 5: Sexual attraction
+
+What does the distribution of sexual attraction look like? Is this what you expected?
+
+
+```{r}
+counts<- table(dat$sexatract)
+barplot(counts,main= "Sexual Attraction", xlab="categories")
+```
+
+
+Answer: The distribution of sexual attraction is heavily weighted towards number 1 which indicated heterosexuality. I was not surprised by there being the greatest weight on heterosexuality, but I was slightly surprised quite how extreme the difference is.  
+
+What is the distribution of sexual attraction by gender? 
+
+```{r}
+counts <- table(dat$irsex, dat$sexatract)
+barplot(counts,main= "Sexual Attraction by Gender", xlab="categories")
+barplot(counts, col=c("red", "blue"), legend=TRUE)
+
+
+```
+
+Answer: The distribution of sexual attraction by gender is intriguing to me because the first group (strongly heterosexual) appers mostly weighted towards males. The group showing bisexuality is heavily weighted towards females. The group identifying as homosexual is mostly male. The groups not knowing or leaving blank are all female and the group skipping the question is mostly male. 
+
+## Problem 6: English speaking
+
+What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
+
+```{r}
+counts<- table(dat$speakengl)
+barplot(counts,main= "English Language Proficiency", xlab="categories")
+```
+
+Answer: The distribution of english speaking proficiency is heavily weighted towards the number 1 which indicates being able to speak english very well. I was not surpsied by this within the sample
+
+Are there more English speaker females or males?
+
+```{r}
+counts <- table(dat$irsex, dat$speakengl)
+barplot(counts, col=c("purple", "blue"), legend=TRUE)
+```
+
+
+Answer: For those that speak english very well there is a somewhat even split between the sexes, but there are overall more females. That said, there are more males than females who answered that they speak english "well"
+
 
 
 

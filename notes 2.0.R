@@ -56,3 +56,8 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
   geom_map(map=map_data("state")) + 
   expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
   
+
+class(dat$murder)
+
+
+  
