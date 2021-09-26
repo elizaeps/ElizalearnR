@@ -344,7 +344,7 @@ div.tocify {
 
 <div id="assignment-1" class="section level1">
 <h1>Assignment 1</h1>
-<p><strong>Collaborators: Carolina Herrera Figueroa. </strong></p>
+<p><strong>Collaborators: Carolina Herrera Figueroa, Niko Amber</strong></p>
 <div id="problem-1" class="section level3">
 <h3>Problem 1</h3>
 <p>Install the datasets package on the console below and load the data</p>
@@ -470,7 +470,7 @@ barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest ra
 <p>What does the given code do? Explain what each line is doing.</p>
 <p>Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range</p>
 <p><span class="math display">\[\\[2in]\]</span> # Assignment 2</p>
-<p><strong>Collaborators: Carolina Herrera Figueroa. </strong></p>
+<p><strong>Collaborators: Carolina Herrera Figueroa, Niko Amber </strong></p>
 </div>
 <div id="problem-1-load-data" class="section level2">
 <h2>Problem 1: Load data</h2>
@@ -527,8 +527,10 @@ barplot(counts,main= &quot;Sexual Attraction&quot;, xlab=&quot;categories&quot;)
 <p>Answer: The distribution of sexual attraction is heavily weighted towards number 1 which indicated heterosexuality. I was not surprised by there being the greatest weight on heterosexuality, but I was slightly surprised quite how extreme the difference is.</p>
 <p>What is the distribution of sexual attraction by gender?</p>
 <pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
-barplot(counts, col=c(&quot;red&quot;, &quot;blue&quot;), legend=TRUE)</code></pre>
+barplot(counts,main= &quot;Sexual Attraction by Gender&quot;, xlab=&quot;categories&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>barplot(counts, col=c(&quot;red&quot;, &quot;blue&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
 <p>Answer: The distribution of sexual attraction by gender is intriguing to me because the first group (strongly heterosexual) appers mostly weighted towards males. The group showing bisexuality is heavily weighted towards females. The group identifying as homosexual is mostly male. The groups not knowing or leaving blank are all female and the group skipping the question is mostly male.</p>
 </div>
 <div id="problem-6-english-speaking" class="section level2">

@@ -113,7 +113,7 @@
 \hypertarget{assignment-1}{%
 \section{Assignment 1}\label{assignment-1}}
 
-\textbf{Collaborators: Carolina Herrera Figueroa. }
+\textbf{Collaborators: Carolina Herrera Figueroa, Niko Amber}
 
 \hypertarget{problem-1}{%
 \subsubsection{Problem 1}\label{problem-1}}
@@ -340,7 +340,7 @@ the map itself separating by state and the final line expands the range
 
 \[\\[2in]\] \# Assignment 2
 
-\textbf{Collaborators: Carolina Herrera Figueroa. }
+\textbf{Collaborators: Carolina Herrera Figueroa, Niko Amber }
 
 \hypertarget{problem-1-load-data}{%
 \subsection{Problem 1: Load data}\label{problem-1-load-data}}
@@ -499,11 +499,19 @@ What is the distribution of sexual attraction by gender?
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{counts <-}\StringTok{ }\KeywordTok{table}\NormalTok{(dat}\OperatorTok{$}\NormalTok{irsex, dat}\OperatorTok{$}\NormalTok{sexatract)}
-\KeywordTok{barplot}\NormalTok{(counts, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{barplot}\NormalTok{(counts,}\DataTypeTok{main=} \StringTok{"Sexual Attraction by Gender"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"categories"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{Assignments_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(counts, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignments_files/figure-latex/unnamed-chunk-11-2.pdf}
 
 Answer: The distribution of sexual attraction by gender is intriguing to
 me because the first group (strongly heterosexual) appers mostly
