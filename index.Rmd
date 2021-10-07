@@ -21,8 +21,9 @@ output: html_document
 
 Welcome to Eliza Epstein's website for Crim 250. 
 
-All homework assignments are available under the assignments tab. 
+Eliza is a senior at the University of Pennsylvania studying Biology and Criminology, with a minor in Chemistry.  
 
+Eliza is taking crim 250 in order to learn R for her thesis. Under the assignments tab you can find all of the homework assignments and exams from this course. 
 
 </div>
 <div class="col-sm-6">
