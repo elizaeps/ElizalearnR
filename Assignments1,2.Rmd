@@ -1,15 +1,15 @@
 ---
 title: "Assignments"
 output:
+  word_document:
+    toc: yes
+    toc_depth: '1'
   html_document:
     toc: yes
     toc_float: yes
     collapsed: no
     number_sections: no
     toc_depth: 1
-  word_document:
-    toc: yes
-    toc_depth: '1'
   pdf_document:
     toc: yes
     toc_depth: '1'
@@ -264,136 +264,6 @@ barplot(counts, col=c("purple", "blue"), legend=TRUE)
 Answer: For those that speak english very well there is a somewhat even split between the sexes, but there are overall more females. That said, there are more males than females who answered that they speak english "well"
 
 
-
----
-title: "Exam 1"
-author: "Eliza Jane Epstein"
-date: "10/04/2021"
-output: html_document
----
-
-
-# Exam 1
-
-```{r}
-setwd("/Users/elizaepstein/Desktop/testgithub/ElizalearnR/exams")
-dat <- read.csv(file='fatal-police-shootings-data.csv')
-```
-
-
-## Problem 1 (10 points)
-
-a. Describe the dataset. This is the source: https://github.com/washingtonpost/data-police-shootings . Write two sentences (max.) about this.
-
-This dataset describes fatal police shootings since 2015 including information about the victim such as race, gender, whether they were armed, the city and signs of mental illenss. 
-
-b. How many observations are there in the data frame?
-```{r}
-summary(dat)
-ncol(dat)
-nrow(dat)
-```
-
-There are 6594 cases observed with 17 categories used to describe each case. 
-
-c. Look at the names of the variables in the data frame. Describe what "body_camera", "flee", and "armed" represent, according to the codebook. Again, only write one sentence (max) per variable.
-
-body camera: This tells whether the police officer was wearing a body camera (as true or false)
-
-flee: This tells whether the victim attempted to flee and how (by foot, by car or not fleeing)
-
-armed: this tells whether the victim was armed with a weapon and what type (gun, shovel, toy weapon etc. )
-
-d. What are three weapons that you are surprised to find in the "armed" variable? Make a table of the values in "armed" to see the options.
-```{r}
-table(dat$armed)
-```
-
-I am surprised to see air conditioner, flashlight and microphone listed as weapons (among other peculiar options).
-
-## Problem 2 (10 points)
-
-a. Describe the age distribution of the sample. Is this what you would expect to see?
-```{r}
-
-counts <- table(dat$age)
-barplot(counts, col=c("pink"), legend=TRUE)
-```
-
-```{r}
-summary(dat$age)
-```
-The ages range from 6 (minimum) to 91 (maximum)  with a mean of 37.12 and a median of 35. The mean and median are what I would expect to see, but I was surpised by how high and low the data gets: I would not expect to see a 6 year old or a 91 year old among this group. It is also crucial to note that there are 308 values listed as NA. 
-
-b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.
-
-To understand the "center" of the age distribution, I would choose median because that is the middle value which has half above and half below. Unlike mean, median is not affected by outliers. The median is 35. 
-
-c. Describe the gender distribution of the sample. Do you find this surprising?
-```{r}
-counts <- table(dat$gender)
-barplot(counts, col=c("yellow","gray"), legend=TRUE)
-
-table(dat$gender)
-```
-
-There are significantly more males than females, as shown in the bar chart.The table shows that there are 293 females and 6298 males. I am not surprised by this given that the vast majority of fatal police shootings that we hear about on the news are male. That said, this is slightly more extreme than I was expecting. 
-
-## Problem 3 (10 points)
-
-a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?
-
-```{r}
-
-table(dat$body_camera)
-```
-
-Of the 6594 listed, 910 police officers had body cameras. This is 13.8% of all listed. This is much lower than I would hope, but I am not surprised by this value. 
-
-b. In  how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?
-```{r}
-table(dat$flee)
-```
-
-Between fleeing by car or by foot, there are 1903 victims who fled. Excluding the missing values and the "other" there are 5855 reported values which gave clear answers or fleeing or not. Of the 5855 reported cases, the amount who fled make up 35.5% of the victims. This is lower than I would expect. The left most column in the table shows the amount of missing values: 491. The right most column shows "other": 248. That said, when analyzing fleeing vs not fleeing, I felt it was most useful to look at the 5855 cases who either reported "not fleeing" or reported the mode of fleeing "car" or "foot".  
-
-
-## Problem 4 (10 points) -  Answer only one of these (a or b).
-
-a. Describe the relationship between the variables "body camera" and "flee" using a stacked barplot. What can you conclude from this relationship? 
-
-*Hint 1: The categories along the x-axis are the options for "flee", each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).*
-
-*Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.*
-
-
-```{r}
-counts <- table(dat$body_camera, dat$flee)
-barplot(counts,main= "Body camera by fleeing", xlab="categories", col=c("red", "blue"), legend=TRUE)
-```
-
-Of the groups for fleeing, the largest proportion of cases in which the police were wearing body cameras falls under the case of the victim not fleeing. Each of the groups shows significantly more cases in which the police officer was not wearing a body camera. The left most bar shows missing values. While it is intriguing to view that the largest proportion of cases in which police officers were wearing body cameras falls under the case in which the victim was not fleeing, it is crucial to note that this cannot be seen as a causation (it cannot be said that the victim not fleeing means that the police officer will wear a camera)
-
-
-## Extra credit (10 points)
-
-a. What does this code tell us? 
-
-```{r, eval=FALSE}
-mydates <- as.Date(dat$date)
-head(mydates)
-(mydates[length(mydates)] - mydates[1])
-```
-
-This code is telling us the spread of the dates: showing that the difference between the first date listed and the last date listed is 2458 days. 
-
-b. On Friday, a new report was published that was described as follows by The Guardian: "More than half of US police killings are mislabelled or not reported, study finds." Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?
-
-I believe that police killings may be mislabelled or underreported due to police departments protecting themselves. As shown in the data, a very low percentage are wearing body cameras during incidences, so police officers can easily get away with mislabelling these cases. 
-
-c. Regarding missing values in problem 4, do you see any? If so, do you think that's all that's missing from the data?
-
-There are 491 missing values in problem 4. I do not believe that is all that is missing from the data. 
 
 
 
