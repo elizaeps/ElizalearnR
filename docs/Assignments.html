@@ -838,9 +838,7 @@ dat.crime &lt;- read_delim(&quot;crime_simple.txt&quot;, delim = &quot;\t&quot;)
 <p>W: Median value of transferable goods and assets or family income in tens of $</p>
 <p>X: The number of families per 1000 earning below 1/2 the median income</p>
 <p>We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related.</p>
-<ol style="list-style-type: decimal">
-<li>How many observations are there in the dataset? To what does each observation correspond?</li>
-</ol>
+<p>##1. How many observations are there in the dataset? To what does each observation correspond?</p>
 <pre class="r"><code>nrow(dat.crime)</code></pre>
 <pre><code>## [1] 47</code></pre>
 <pre class="r"><code>ncol(dat.crime)</code></pre>
@@ -856,47 +854,38 @@ dat.crime &lt;- read_delim(&quot;crime_simple.txt&quot;, delim = &quot;\t&quot;)
 ## 5 123.    141     0   121   109   101   591   985    18    30    91    20   578
 ## 6  68.2   121     0   110   118   115   547   964    25    44    84    29   689
 ## # … with 1 more variable: X &lt;dbl&gt;</code></pre>
-<p>There are 14 columns and 47 rows, with a total of 658 observations in the data set. Each row represents a state, with columns indicating statistics such as number of offenses reported to police per million, unemployment rates, expenditure of police etc.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?</li>
-</ol>
+<p>ANSWER: There are 14 columns and 47 rows, with a total of 658 observations in the data set. Each row represents a state, with columns indicating statistics such as number of offenses reported to police per million, unemployment rates, expenditure of police etc.</p>
+<p>##2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?</p>
 <pre class="r"><code>library(datasets)
 plot(dat.crime$Ed, dat.crime$R,  main=&quot;Relationship between Reported Crime Rate and Level of Education&quot;,
     xlab=&quot;Level of Education&quot;, ylab=&quot;Reported Crime Rate&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-26-1.png" width="576" /></p>
 <pre class="r"><code>cor(dat.crime$Ed, dat.crime$R)</code></pre>
 <pre><code>## [1] 0.3228349</code></pre>
-<p>The correlation between the two variables is 0.3228. Given that correlations range from -1 to 1 this shows a rather small positive correlation. That is, there is a slightly positive relationship between the level of education and the number of reported crimes. It is reasonable that this number is relatively low though because this relationship is not a direct causation.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Regress reported crime rate (y) on average education (x) and call this linear model <code>crime.lm</code> and write the summary of the regression by using this code, which makes it look a little nicer <code>{r, eval=FALSE} kable(summary(crime.lm)$coef, digits = 2)</code>.</li>
-</ol>
+<p>ANSWER: The correlation between the two variables is 0.3228. Given that correlations range from -1 to 1 this shows a rather small positive correlation. That is, there is a slightly positive relationship between the level of education and the number of reported crimes. It is reasonable that this number is relatively low though because this relationship is not a direct causation.</p>
+<p>##3. Regress reported crime rate (y) on average education (x) and call this linear model <code>crime.lm</code> and write the summary of the regression by using this code, which makes it look a little nicer <code>{r, eval=FALSE} kable(summary(crime.lm)$coef, digits = 2)</code>.</p>
 <pre class="r"><code>reg.output &lt;- lm(formula = R ~ Ed, data=dat.crime)</code></pre>
 <pre class="r"><code>summary(reg.output)</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)</li>
-</ol>
+<p>##4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)</p>
 <pre class="r"><code>plot(dat.crime$Ed, reg.output$residuals, ylim=c(-15,15), main=&quot;Residuals vs. x&quot;, xlab=&quot;x, Average Education&quot;, ylab=&quot;Residuals&quot;)
 abline(h = 0, lty=&quot;dashed&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
-<p>For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can be said that for this data set the linearity assumption holds true.</p>
+<p>ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can be said that for this data set the linearity assumption holds true.</p>
 <pre class="r"><code>plot(reg.output, which=1)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-30-1.png" width="672" /> Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied.</p>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>ANSWER: Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied.</p>
 <pre class="r"><code>plot(reg.output, which=3)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-31-1.png" width="672" /> The third assumption, equal variance, holds true because there does not seem to be a trend in the red line: it appears mostly flat.</p>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>ANSWER: The third assumption, equal variance, holds true because there does not seem to be a trend in the red line: it appears mostly flat.</p>
 <pre class="r"><code>plot(reg.output, which=2)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-32-1.png" width="672" /> The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?</li>
-</ol>
-<p>The relationship between reported crime and average education is statistically significant given that the p-value is less than .05. The estimated coefficient of the slope is 1.11. The Standard error is 0.4787 and the p value is 0.0288. T tests are used to determine whether a relationship between two values is due to chance/random or if it is a true relationship. To be statistically significant means that the relationship is real and not due to chance. The null hypothesis can be rejected.</p>
-<ol start="6" style="list-style-type: decimal">
-<li>How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?</li>
-</ol>
-<p>Given the slope of 1.116, for every unit increase in education, reported crime rate increases by 1.116 reports per million per state.</p>
-<ol start="7" style="list-style-type: decimal">
-<li>Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?</li>
-</ol>
-<p>It cannot be concluded that if individuals were to reveive more education then crime will be reported more often. Using this one data set does not mean that the results are generalizable. While this data may support the hypothesis that when individuals receive more education more crime will be reported, it cannot be used to full determine a causation.</p>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>ANSWER: The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.</p>
+<p>##5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?</p>
+<p>ANSWER: The relationship between reported crime and average education is statistically significant given that the p-value is less than .05. The estimated coefficient of the slope is 1.11. The Standard error is 0.4787 and the p value is 0.0288. T tests are used to determine whether a relationship between two values is due to chance/random or if it is a true relationship. To be statistically significant means that the relationship is real and not due to chance. The null hypothesis can be rejected.</p>
+<p>##6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?</p>
+<p>ANSWER: Given the slope of 1.116, for every unit increase in education, reported crime rate increases by 1.116 reports per million per state.</p>
+<p>##7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?</p>
+<p>ANSWER: It cannot be concluded that if individuals were to reveive more education then crime will be reported more often. Using this one data set does not mean that the results are generalizable. While this data may support the hypothesis that when individuals receive more education more crime will be reported, it cannot be used to full determine a causation.</p>
 </div>
 
 
