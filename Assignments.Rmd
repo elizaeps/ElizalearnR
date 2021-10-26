@@ -500,7 +500,7 @@ For residuals vs X, if the linearity assumption is satisfied there should be no 
 plot(reg.output, which=1)
 
 ```
-Given that neith the residuals vs X and the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied. 
+Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied. 
 ```{r} 
 plot(reg.output, which=3)
 

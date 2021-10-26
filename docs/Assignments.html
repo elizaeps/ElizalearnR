@@ -880,7 +880,7 @@ abline(h = 0, lty=&quot;dashed&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can be said that for this data set the linearity assumption holds true.</p>
 <pre class="r"><code>plot(reg.output, which=1)</code></pre>
-<p><img src="Assignments_files/figure-html/unnamed-chunk-30-1.png" width="672" /> Given that neith the residuals vs X and the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied.</p>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-30-1.png" width="672" /> Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied.</p>
 <pre class="r"><code>plot(reg.output, which=3)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-31-1.png" width="672" /> The third assumption, equal variance, holds true because there does not seem to be a trend in the red line: it appears mostly flat.</p>
 <pre class="r"><code>plot(reg.output, which=2)</code></pre>
