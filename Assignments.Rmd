@@ -141,6 +141,7 @@ What does the given code do? Explain what each line is doing.
 Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range 
 
 $$\\[2in]$$
+
 # Assignment 2
 
 **Collaborators: Carolina Herrera Figueroa, Niko Amber **
