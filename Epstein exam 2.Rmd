@@ -1,0 +1,101 @@
+---
+title: "Exam 2"
+author: "Eliza Jane Epstein"
+date: "11/01/2021"
+output: html_document
+---
+
+
+# Instructions
+
+a. Create a folder in your computer (a good place would be under Crim 250, Exams). 
+
+b. Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.
+
+c. Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: **"Does having more funding in a police department lead to fewer incidents of police brutality?"**
+d. Codebook:
+- funds: How much funding the police department received in that year in millions of dollars.
+- po.brut: How many incidents of police brutality were reported by the department that year.
+- po.dept.code: Police department code
+
+# Problem 1: EDA (10 points) 
+
+Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.
+
+```{r}
+dat <- read.csv(file = 'sim.data.csv')
+summary(dat)
+```
+
+This simulated data set describes police departments funding (in millions of dollars) as well as number of cases of police brutality. The minimum amount of funding (of the departments included) is 21.4 million dollars and the maximum is 99.70 million with a mean of 61.04 million. The minimum number of incidents police brutality is 0 and the maximum is 29, with a mean of 18.14. There is a scatterplot to show a visual representation of this data included in problem 2c. 
+
+
+# Problem 2: Linear regression (30 points)
+
+a. Perform a simple linear regression to answer the question of interest. To do this, name your linear model "reg.output" and write the summary of the regression by using "summary(reg.output)". 
+
+```{r}
+reg.output <- lm(formula= po.brut~funds, data = dat)
+summary (reg.output)
+
+cor(dat$funds, dat$po.brut)
+```
+
+Answer: In attempting to answer the question of whether increased funding leads to fewer cases of police brutality a linear regression model was run. The funding was made as the x axis with incidents of police brutality as the Y. The correlation value is -0.985 which is a strong negative correlation. 
+
+b. Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain.
+
+The slope for this data is -3.671e-01 meaning as funding increases the line representing police brutality does show a decreasing slope. The standard error is 4.49e-03. The P value is 2.2e-16 which is much lower than 0.05 so a statistically significant difference is shown. The P value is used to indicate whether the relationship between these two groups is due to chance or whether the change in one is related to the change in another. This p value shows that the data are related and that the change in incidents of police brutality is related to the change in funding. That is, we can reject the null. 
+
+c. Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:
+```{r, fig.width=4, fig.height=4}
+
+plot(dat$funds, dat$po.brut, main = "Scatterplot comparing Police Funding and Incidents of Police Brutality" )
+abline(reg.output, col = "red", lwd=2)
+```
+Does the line look like a good fit? Why or why not?
+
+Overall the line generally looks like a good fit, but when examining closely, it does appear to have issues on the ends. Ideally, the red line would run through the data points, but that does not appear to be the case. On the ends the points seem to be to the left of the line and in the middle the points appear to be to the right of the line. Overall there is more of a curve to the line than ideal. 
+
+d. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?
+
+```{r}
+plot(dat$funds, reg.output$residuals, ylim=c(-15,15), main="Residuals vs. x", xlab="Police Department Funding", ylab="Residuals")
+abline(h = 0, lty="dashed")
+```
+
+
+ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can not be said that for this data set the linearity assumption holds true; this is a pattern.
+
+```{r} 
+plot(reg.output, which=1)
+
+```
+
+
+ANSWER: Given that the residuals vs fitted seems to show a curvature, it cannot be said that the independence assumption is true.  
+```{r} 
+plot(reg.output, which=3)
+
+```
+
+
+ANSWER: The third assumption, equal variance, is not satisfied because the line is not mostly flat; there appears to be curvature. 
+
+```{r} 
+plot(reg.output, which=2)
+
+```
+
+
+The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.
+
+e. Answer the question of interest based on your analysis.
+
+Within this data set it does appear that as the funding increases, the incidents of police brutality are decreasing. The P value indicates that there is statistical significance and that this change is not merely due to chance. That said, while this data may support the idea that increased funding may lead to decreased incidents of police brutality, this one simulated data set of 200 departments cannot be used to make a general conclusion. Furthermore, given that the assumptions are not satisfied, there seem to be issues in this regression. That is, overall it cannot be concluded that an increase in funding will lead to a decrease in police brutality. 
+
+# Problem 3: Data ethics (10 points)
+
+Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?
+
+Following the lecture on data ethics, there are certain aspects of the data set that do not worry me ethically and others that do. For example, two major concerns in terms of ethics are privacy (individual) and confidentiality (data). This data does not release any privatized information about the incidents of police brutality so I believe it is ethically satisfied in that way.It would concern me if it were collected with names of victims. That said, the part of this that rankles my ethics is the possibility of this data being used to make conclusions about this issue. This sample size of 200 police departments cannot be used to make generalized assumptions and imply that police departments should receive more funding. First off, the assumptions do not all seem to be satisfied, so there are issues with this correlation. Furthermore, this notes situations of reported cases of police brutality, so there may be MANY incidents of police brutality that are not accounted for. In terms of data collection, I would be concerned in terms of how the reports were made: if the police departments were reporting the data themselves they would want to show both lower incidents of police brutality but also they would want this correlation to be true in order to recieve more funding. For that reason, I would be worried about the accuracy of the collection. 

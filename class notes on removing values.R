@@ -22,5 +22,8 @@ dat <- read.cvs("data.csv")
 
      
      
+dat$funds
 
+dat$funds.nas<-ifelse(dat$funds==FALSE,NA,dat$sexatract)
+table (dat$funds.nas)
 
