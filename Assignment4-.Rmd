@@ -1,0 +1,1149 @@
+---
+title: "Assignments"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
+    toc_depth: 1
+  word_document:
+    toc: yes
+    toc_depth: '1'
+  pdf_document:
+    toc: yes
+    toc_depth: '1'
+---
+---
+title: "Assignments"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
+    toc_depth: 1
+  pdf_document:
+    toc: no
+    toc_depth: '1'
+---
+
+
+
+# Assignment 1
+
+**Collaborators: Carolina Herrera Figueroa, Niko Amber**
+
+
+### Problem 1 
+
+Install the datasets package on the console below and load the data
+
+```{r} 
+dat<-USArrests
+
+```
+
+Load the USArrests dataset and rename it `dat`. Note that this dataset comes with R, in the package datasets, so there's no need to load data from your computer. Why is it useful to rename the dataset?
+
+Answer: It is useful to rename the data set for convenience and easy accessibility. 
+```{r}
+USArrests
+dat<-USArrests
+
+
+```
+
+### Problem 2
+
+List the variables contained in the dataset:
+ 
+The four variables within the dataset are Murder, Assault, Urbanpop and Rape
+
+### Problem 3 
+
+What type of variable (from the DVB chapter) is `Murder`? 
+
+Answer: categorical
+
+What R Type of variable is it?
+
+Answer: character
+
+
+### Problem 4
+
+What information is contained in this dataset, in general? What do the numbers mean? 
+
+Answer: The data set shows the arrest rate per 100,000 in the US in 1973. The rows show each state and the columns show the type of arrest. Each number shows the amount of arrests of that type within that state per 100,000.  
+
+### Problem 5
+
+Draw a histogram of `Murder` with proper labels and title.
+
+I chose to do a bar chart instead due to the categorical nature of the values. 
+
+```{r}
+  state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest rate for Murder per 100,000", 
+    main = "Arrest rate for Murder in the United States in 1973")
+```
+
+
+### Problem 6
+
+Please summarize `Murder` quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?
+
+Answer: The mean for murder is 7.788 and the median for murder is 7.250. Mean is the average of the data (that is: if you were to add up all of the values then divide by the amount of values present). Median is the middle value (half of the values are above and half are below). If the data is well distributed, mean and median will be similar or the same, but the major differences occur when there are outliers: mean is impacted by outliers whereas median is not. In this data seet, mean and median appear rather similar. Quartiles are the data broken up into 4 parts. R gives the 1st quartile to give a sense of the values up until 25% of the data and the 3rd quartile to give values up until 75% of the data. 
+
+### Problem 7
+
+Repeat the same steps you followed for `Murder`, for the variables `Assault` and `Rape`. Now plot all three histograms together. You can do this by using the command `par(mfrow=c(3,1))` and then plotting each of the three. 
+
+```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+  state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = "Arrest rate for assault per 100,000", 
+    main = "Arrest Rate for Assault in the United States in 1973")
+
+ state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest rate for Rape per 100,000", 
+    main = "Arrest Rate for Rape in the United States in 1973")
+```
+
+```{r}
+   par(mfrow=c(3,1))
+     state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = "Arrest rate for Murder per 100,000", 
+    main = "Arrest rate for Murder in the United States in 1973")
+
+state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = "Arrest rate for assault per 100,000", 
+    main = "Arrest Rate for Assault in the United States in 1973")
+
+ state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = "Arrest rate for Rape per 100,000", 
+    main = "Arrest Rate for Rape in the United States in 1973")
+```
+
+
+What does the command par do, in your own words (you can look this up by asking R `?par`)?
+
+Answer: Command par allows for multiple graphs to be plotted together. This command makes this possible by defining parameters. 
+
+What can you learn from plotting the histograms together?
+
+Answer: By plotting the histograms together it allows us to visually compare the rates for each. While it is useful to compare the numbers when looking at the table, plotting the values together allows for visual comparison. 
+  
+### Problem 8
+
+What does the given code do? Explain what each line is doing.
+
+Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range 
+
+$$\\[2in]$$
+
+# Assignment 2
+
+**Collaborators: Carolina Herrera Figueroa, Niko Amber **
+
+## Problem 1: Load data
+
+Set your working directory to the folder where you downloaded the data.
+
+```{r}
+setwd("/Users/elizaepstein/Desktop/testgithub/ElizalearnR")
+
+```
+
+Read the data
+
+```{r}
+dat <- read.csv(file = 'dat.nsduh.small.1.csv')
+
+```
+
+What are the dimensions of the dataset? 
+
+```{r}
+names(dat)
+nrow(dat)
+ncol(dat) 
+```
+
+Answer: There are 7 columns and 171 rows. 
+
+## Problem 2: Variables
+
+Describe the variables in the dataset.
+
+Answer: The variables in this dataset are the age that an individual began smoking cigarettes, the age they began drinking alcohol, their age, their sexual attraction, whether they speak english and their sex. 
+
+What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
+
+Answer: This data set shows the trends in substance abuse by age, sex, sexual attraction and their english language proficiency. This data was collected through the National Survey of Drug Use and Health; it is a sample of the first 1,000 individuals of the survey. The purpose of this data was to analyze trends in substance abuse. While it is not stated, these trends may be used to further understand which individuals to target for treatment.
+
+## Problem 3: Age and gender
+
+What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
+
+Answer: The age distribution starts from 12 and goes to 65+. The codebook explains how each age is labelled a number, so "17" represents individuals who are 65 or older. 
+
+Do you think this age distribution representative of the US population? Why or why  not?
+
+Answer: I do believe that the age distribution is representative of the US population because it covers all ages twelve and above. Due to the fact that this survey is questioning the ages someone began using substances, it is reasonable that it begins at 12. 
+
+Is the sample balanced in terms of gender? If not, are there more females or males?
+
+Answer: I believe the sample is mostly balanced in terms of gender, but there are slightly more females. As seen in the codebook, the sample consists of 47.72% male and 52.28% females. 
+
+Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
+
+```{r}
+tab.agesex <- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = "Stacked barchart",
+        xlab = "Age category", ylab = "Frequency",
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)
+```
+
+
+Answer: This plot shows the frequency of sex of the respondent by age. For most of the younger age groups there seems to be more female respondents then the group between eight to twelve show more male respondents. Group 15 had the most respondents and seems to show a pretty even split between gendeers.  
+
+## Problem 4: Substance use
+
+For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
+
+
+Answer: Of the three substances included individuals tend to use alcohol the youngest.
+
+
+## Problem 5: Sexual attraction
+
+What does the distribution of sexual attraction look like? Is this what you expected?
+
+
+```{r}
+counts<- table(dat$sexatract)
+barplot(counts,main= "Sexual Attraction", xlab="categories")
+```
+
+
+Answer: The distribution of sexual attraction is heavily weighted towards number 1 which indicated heterosexuality. I was not surprised by there being the greatest weight on heterosexuality, but I was slightly surprised quite how extreme the difference is.  
+
+What is the distribution of sexual attraction by gender? 
+
+```{r}
+counts <- table(dat$irsex, dat$sexatract)
+barplot(counts,main= "Sexual Attraction by Gender", xlab="categories")
+barplot(counts, col=c("red", "blue"), legend=TRUE)
+
+
+```
+
+Answer: The distribution of sexual attraction by gender is intriguing to me because the first group (strongly heterosexual) appers mostly weighted towards males. The group showing bisexuality is heavily weighted towards females. The group identifying as homosexual is mostly male. The groups not knowing or leaving blank are all female and the group skipping the question is mostly male. 
+
+## Problem 6: English speaking
+
+What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
+
+```{r}
+counts<- table(dat$speakengl)
+barplot(counts,main= "English Language Proficiency", xlab="categories")
+```
+
+Answer: The distribution of english speaking proficiency is heavily weighted towards the number 1 which indicates being able to speak english very well. I was not surpsied by this within the sample
+
+Are there more English speaker females or males?
+
+```{r}
+counts <- table(dat$irsex, dat$speakengl)
+barplot(counts, col=c("purple", "blue"), legend=TRUE)
+```
+
+
+Answer: For those that speak english very well there is a somewhat even split between the sexes, but there are overall more females. That said, there are more males than females who answered that they speak english "well"
+
+
+
+---
+title: "Exam 1"
+author: "Eliza Jane Epstein"
+date: "10/04/2021"
+output: html_document
+---
+
+
+# Exam 1
+
+```{r}
+setwd("/Users/elizaepstein/Desktop/testgithub/ElizalearnR")
+dat <- read.csv(file='fatal-police-shootings-data.csv')
+```
+
+
+## Problem 1 (10 points)
+
+a. Describe the dataset. This is the source: https://github.com/washingtonpost/data-police-shootings . Write two sentences (max.) about this.
+
+This dataset describes fatal police shootings since 2015 including information about the victim such as race, gender, whether they were armed, the city and signs of mental illenss. 
+
+b. How many observations are there in the data frame?
+```{r}
+summary(dat)
+ncol(dat)
+nrow(dat)
+```
+
+There are 6594 cases observed with 17 categories used to describe each case. 
+
+c. Look at the names of the variables in the data frame. Describe what "body_camera", "flee", and "armed" represent, according to the codebook. Again, only write one sentence (max) per variable.
+
+body camera: This tells whether the police officer was wearing a body camera (as true or false)
+
+flee: This tells whether the victim attempted to flee and how (by foot, by car or not fleeing)
+
+armed: this tells whether the victim was armed with a weapon and what type (gun, shovel, toy weapon etc. )
+
+d. What are three weapons that you are surprised to find in the "armed" variable? Make a table of the values in "armed" to see the options.
+```{r}
+table(dat$armed)
+```
+
+I am surprised to see air conditioner, flashlight and microphone listed as weapons (among other peculiar options).
+
+## Problem 2 (10 points)
+
+a. Describe the age distribution of the sample. Is this what you would expect to see?
+```{r}
+
+counts <- table(dat$age)
+barplot(counts, col=c("pink"), legend=TRUE)
+```
+
+```{r}
+summary(dat$age)
+```
+The ages range from 6 (minimum) to 91 (maximum)  with a mean of 37.12 and a median of 35. The mean and median are what I would expect to see, but I was surpised by how high and low the data gets: I would not expect to see a 6 year old or a 91 year old among this group. It is also crucial to note that there are 308 values listed as NA. 
+
+b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.
+
+To understand the "center" of the age distribution, I would choose median because that is the middle value which has half above and half below. Unlike mean, median is not affected by outliers. The median is 35. 
+
+c. Describe the gender distribution of the sample. Do you find this surprising?
+```{r}
+counts <- table(dat$gender)
+barplot(counts, col=c("yellow","gray"), legend=TRUE)
+
+table(dat$gender)
+```
+
+There are significantly more males than females, as shown in the bar chart.The table shows that there are 293 females and 6298 males. I am not surprised by this given that the vast majority of fatal police shootings that we hear about on the news are male. That said, this is slightly more extreme than I was expecting. 
+
+## Problem 3 (10 points)
+
+a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?
+
+```{r}
+
+table(dat$body_camera)
+```
+
+Of the 6594 listed, 910 police officers had body cameras. This is 13.8% of all listed. This is much lower than I would hope, but I am not surprised by this value. 
+
+b. In  how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?
+```{r}
+table(dat$flee)
+```
+
+Between fleeing by car or by foot, there are 1903 victims who fled. Excluding the missing values and the "other" there are 5855 reported values which gave clear answers or fleeing or not. Of the 5855 reported cases, the amount who fled make up 35.5% of the victims. This is lower than I would expect. The left most column in the table shows the amount of missing values: 491. The right most column shows "other": 248. That said, when analyzing fleeing vs not fleeing, I felt it was most useful to look at the 5855 cases who either reported "not fleeing" or reported the mode of fleeing "car" or "foot".  
+
+
+## Problem 4 (10 points) -  Answer only one of these (a or b).
+
+a. Describe the relationship between the variables "body camera" and "flee" using a stacked barplot. What can you conclude from this relationship? 
+
+*Hint 1: The categories along the x-axis are the options for "flee", each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).*
+
+*Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.*
+
+
+```{r}
+counts <- table(dat$body_camera, dat$flee)
+barplot(counts,main= "Body camera by fleeing", xlab="categories", col=c("red", "blue"), legend=TRUE)
+```
+
+Of the groups for fleeing, the largest proportion of cases in which the police were wearing body cameras falls under the case of the victim not fleeing. Each of the groups shows significantly more cases in which the police officer was not wearing a body camera. The left most bar shows missing values. While it is intriguing to view that the largest proportion of cases in which police officers were wearing body cameras falls under the case in which the victim was not fleeing, it is crucial to note that this cannot be seen as a causation (it cannot be said that the victim not fleeing means that the police officer will wear a camera)
+
+
+## Extra credit (10 points)
+
+a. What does this code tell us? 
+
+```{r, eval=FALSE}
+mydates <- as.Date(dat$date)
+head(mydates)
+(mydates[length(mydates)] - mydates[1])
+```
+
+This code is telling us the spread of the dates: showing that the difference between the first date listed and the last date listed is 2458 days. 
+
+b. On Friday, a new report was published that was described as follows by The Guardian: "More than half of US police killings are mislabelled or not reported, study finds." Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?
+
+I believe that police killings may be mislabelled or underreported due to police departments protecting themselves. As shown in the data, a very low percentage are wearing body cameras during incidences, so police officers can easily get away with mislabelling these cases. 
+
+c. Regarding missing values in problem 4, do you see any? If so, do you think that's all that's missing from the data?
+
+There are 491 missing values in problem 4. I do not believe that is all that is missing from the data. 
+
+# Assignment 3
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Collaborators: Carolina Herrera Figueroa
+
+This assignment is due on Canvas on Wednesday 10/27/2021 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
+
+Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.
+
+Save the file (found on Canvas) crime_simple.txt to the same folder as this file (your Rmd file for Assignment 3).
+
+Load the data.
+```{r}
+library(readr)
+library(knitr)
+dat.crime <- read_delim("crime_simple.txt", delim = "\t")
+show_col_types = FALSE
+```
+
+This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given. 
+
+Here is the codebook:
+
+R: Crime rate: # of offenses reported to police per million population
+
+Age: The number of males of age 14-24 per 1000 population
+
+S: Indicator variable for Southern states (0 = No, 1 = Yes)
+
+Ed: Mean of years of schooling x 10 for persons of age 25 or older
+
+Ex0: 1960 per capita expenditure on police by state and local government
+
+Ex1: 1959 per capita expenditure on police by state and local government
+
+LF: Labor force participation rate per 1000 civilian urban males age 14-24
+
+M: The number of males per 1000 females
+
+N: State population size in hundred thousands
+
+NW: The number of non-whites per 1000 population
+
+U1: Unemployment rate of urban males per 1000 of age 14-24
+
+U2: Unemployment rate of urban males per 1000 of age 35-39
+
+W: Median value of transferable goods and assets or family income in tens of $
+
+X: The number of families per 1000 earning below 1/2 the median income
+
+
+We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related. 
+
+
+##1. How many observations are there in the dataset? To what does each observation correspond?
+
+```{r}
+nrow(dat.crime)
+ncol(dat.crime)
+head(dat.crime)
+```
+
+ANSWER: There are 14 columns and 47 rows, with a total of 658 observations in the data set. Each row represents a state, with columns indicating statistics such as number of offenses reported to police per million, unemployment rates, expenditure of police etc. 
+
+
+##2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?
+
+```{r, fig.width=6, fig.height=4}
+library(datasets)
+plot(dat.crime$Ed, dat.crime$R,  main="Relationship between Reported Crime Rate and Level of Education",
+    xlab="Level of Education", ylab="Reported Crime Rate")
+
+cor(dat.crime$Ed, dat.crime$R)
+```
+ANSWER: The correlation between the two variables is 0.3228. Given that correlations range from -1 to 1 this shows a rather small positive correlation. That is, there is a slightly positive relationship between the level of education and the number of reported crimes. It is reasonable that this number is relatively low though because this relationship is not a direct causation. 
+
+##3. Regress reported crime rate (y) on average education (x) and call this linear model `crime.lm` and write the summary of the regression by using this code, which makes it look a little nicer 
+
+```{r} 
+reg.output <- lm(formula = R ~ Ed, data=dat.crime)
+```
+ 
+```{r, eval=FALSE} 
+summary(reg.output)
+```
+
+##4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)
+
+```{r} 
+
+
+plot(dat.crime$Ed, reg.output$residuals, ylim=c(-15,15), main="Residuals vs. x", xlab="x, Average Education", ylab="Residuals")
+abline(h = 0, lty="dashed")
+
+
+```
+
+
+ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can be said that for this data set the linearity assumption holds true.
+
+```{r} 
+plot(reg.output, which=1)
+
+```
+
+
+ANSWER: Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied. 
+```{r} 
+plot(reg.output, which=3)
+
+```
+
+
+ANSWER: The third assumption, equal variance, holds true because there does not seem to be a trend in the red line: it appears mostly flat. 
+
+```{r} 
+plot(reg.output, which=2)
+
+```
+
+
+ANSWER: The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.
+
+##5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?
+
+ANSWER: The relationship between reported crime and average education is statistically significant given that the p-value is less than .05. The estimated coefficient of the slope is 1.11. The Standard error is 0.4787  and the p value is 0.0288. T tests are used to determine whether a relationship between two values is due to chance/random or if it is a true relationship. To be statistically significant means that the relationship is real and not due to chance. The null hypothesis can be rejected.  
+
+##6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?
+
+ANSWER: Given the slope of 1.116, for every unit increase in education, reported crime rate increases by 1.116 reports per million per state. 
+
+##7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?
+
+ANSWER: It cannot be concluded that if individuals were to reveive more education then crime will be reported more often. Using this one data set does not mean that the results are generalizable. While this data may support the hypothesis that when individuals receive more education more crime will be reported, it cannot be used to full determine a causation. 
+
+# Exam 2
+
+a. Create a folder in your computer (a good place would be under Crim 250, Exams). 
+
+b. Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.
+
+c. Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: **"Does having more funding in a police department lead to fewer incidents of police brutality?"**
+d. Codebook:
+- funds: How much funding the police department received in that year in millions of dollars.
+- po.brut: How many incidents of police brutality were reported by the department that year.
+- po.dept.code: Police department code
+
+## Problem 1: EDA (10 points) 
+
+Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.
+
+```{r}
+dat <- read.csv(file = 'sim.data.csv')
+summary(dat)
+```
+
+This simulated data set describes police departments funding (in millions of dollars) as well as number of cases of police brutality. The minimum amount of funding (of the departments included) is 21.4 million dollars and the maximum is 99.70 million with a mean of 61.04 million. The minimum number of incidents police brutality is 0 and the maximum is 29, with a mean of 18.14. There is a scatterplot to show a visual representation of this data included in problem 2c. 
+
+
+## Problem 2: Linear regression (30 points)
+
+a. Perform a simple linear regression to answer the question of interest. To do this, name your linear model "reg.output" and write the summary of the regression by using "summary(reg.output)". 
+
+```{r}
+reg.output <- lm(formula= po.brut~funds, data = dat)
+summary (reg.output)
+
+cor(dat$funds, dat$po.brut)
+```
+
+Answer: In attempting to answer the question of whether increased funding leads to fewer cases of police brutality a linear regression model was run. The funding was made as the x axis with incidents of police brutality as the Y. The correlation value is -0.985 which is a strong negative correlation. 
+
+b. Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain.
+
+The slope for this data is -3.671e-01 meaning as funding increases the line representing police brutality does show a decreasing slope. The standard error is 4.49e-03. The P value is 2.2e-16 which is much lower than 0.05 so a statistically significant difference is shown. The P value is used to indicate whether the relationship between these two groups is due to chance or whether the change in one is related to the change in another. This p value shows that the data are related and that the change in incidents of police brutality is related to the change in funding. That is, we can reject the null. 
+
+c. Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:
+```{r, fig.width=4, fig.height=4}
+
+plot(dat$funds, dat$po.brut, main = "Scatterplot comparing Police Funding and Incidents of Police Brutality" )
+abline(reg.output, col = "red", lwd=2)
+```
+Does the line look like a good fit? Why or why not?
+
+Overall the line generally looks like a good fit, but when examining closely, it does appear to have issues on the ends. Ideally, the red line would run through the data points, but that does not appear to be the case. On the ends the points seem to be to the left of the line and in the middle the points appear to be to the right of the line. Overall there is more of a curve to the line than ideal. 
+
+d. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?
+
+```{r}
+plot(dat$funds, reg.output$residuals, ylim=c(-15,15), main="Residuals vs. x", xlab="Police Department Funding", ylab="Residuals")
+abline(h = 0, lty="dashed")
+```
+
+
+ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can not be said that for this data set the linearity assumption holds true; this is a pattern.
+
+```{r} 
+plot(reg.output, which=1)
+
+```
+
+
+ANSWER: Given that the residuals vs fitted seems to show a curvature, it cannot be said that the independence assumption is true.  
+```{r} 
+plot(reg.output, which=3)
+
+```
+
+
+ANSWER: The third assumption, equal variance, is not satisfied because the line is not mostly flat; there appears to be curvature. 
+
+```{r} 
+plot(reg.output, which=2)
+
+```
+
+
+The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.
+
+e. Answer the question of interest based on your analysis.
+
+Within this data set it does appear that as the funding increases, the incidents of police brutality are decreasing. The P value indicates that there is statistical significance and that this change is not merely due to chance. That said, while this data may support the idea that increased funding may lead to decreased incidents of police brutality, this one simulated data set of 200 departments cannot be used to make a general conclusion. Furthermore, given that the assumptions are not satisfied, there seem to be issues in this regression. That is, overall it cannot be concluded that an increase in funding will lead to a decrease in police brutality. 
+
+## Problem 3: Data ethics (10 points)
+
+Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?
+
+Following the lecture on data ethics, there are certain aspects of the data set that do not worry me ethically and others that do. For example, two major concerns in terms of ethics are privacy (individual) and confidentiality (data). This data does not release any privatized information about the incidents of police brutality so I believe it is ethically satisfied in that way.It would concern me if it were collected with names of victims. That said, the part of this that rankles my ethics is the possibility of this data being used to make conclusions about this issue. This sample size of 200 police departments cannot be used to make generalized assumptions and imply that police departments should receive more funding. First off, the assumptions do not all seem to be satisfied, so there are issues with this correlation. Furthermore, this notes situations of reported cases of police brutality, so there may be MANY incidents of police brutality that are not accounted for. In terms of data collection, I would be concerned in terms of how the reports were made: if the police departments were reporting the data themselves they would want to show both lower incidents of police brutality but also they would want this correlation to be true in order to recieve more funding. For that reason, I would be worried about the accuracy of the collection. 
+
+# Assignment 4
+
+```{r} 
+library(tidyverse)
+```
+
+this allows us to load the data. This data analysis is asking about the relationship of fuel efficiency and engine size.
+
+```{r} 
+ggplot2::mpg
+```
+this allows us to create a data table 
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) 
+```
+ this allows us to create a mapped ggplot 
+ 
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, size =class))
+```
+This allows us to create a ggplot distinguishing by size
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, alpha =class))
+```
+This allows us to create a ggplot distinguishing by transparency 
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, shape =class))
+```
+
+This allows us to create a ggplot distinguishing by shape
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+```
+
+this allows us to create a ggplot changing all the points to blue 
+
+##WHAT'S GONE WRONG WITH THIS CODE?
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
+
+ANSWER: this code is including color blue in the parenthesis - it should be on the outside of the aes parenthesis
+
+ggplot(data = mpg) 
++ geom_point(mapping = aes(x = displ, y = hwy))
+
+ANSWER: The + is at the start of the second line instead of the end of the first 
+
+##FACETS
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
+
+This allows us to break up the plots by each variable 
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
+
+this allows us to facet the plot combining both variables throughout 
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+```
+  
+This allows us to not facet by column then not facet by row 
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+```
+
+This allows us to create a line that traces the data
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+```
+
+This allows us to set different types of lines to traces each of the variables 
+
+
+```{r} 
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+              
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))
+    
+ggplot(data = mpg) +
+  geom_smooth(
+    mapping = aes(x = displ, y = hwy, color = drv),
+    show.legend = FALSE
+  )
+```
+
+This allows us to create multiple geoms in the same plot 
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+```
+
+this allows us to create both a smooth line that fits the data and show the scatter plot 
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+```
+
+
+```{r} 
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth()
+```
+
+This allows us to show both the smooth line and the scatterplot as well as incorporate color 
+
+
+```{r} 
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE)
+```
+  
+  This allows us to do the same as above but specify by layer. 
+  
+## STASTICAL TRANSFORMATIONS
+
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut))
+```
+
+This is a bar chart of the diamond cuts with x being cut and y being counts which is calculated through the bar chart algorithm
+
+```{r} 
+demo <- tribble(
+  ~cut,         ~freq,
+  "Fair",       1610,
+  "Good",       4906,
+  "Very Good",  12082,
+  "Premium",    13791,
+  "Ideal",      21551
+)
+
+ggplot(data = demo) +
+  geom_bar(mapping = aes(x = cut, y = freq), stat = "identity")
+```
+
+This allows us to overide the default from count to identity (which maps the height of the bars to the raw y variables)
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = stat(prop), group = 1))
+```
+
+this allows us to override the default mapping from transformed variables to aesthetics
+
+
+```{r} 
+ggplot(data = diamonds) + 
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+
+this allows us to summarize the y values for each x value
+
+## POSITION ADJUSTMENTS
+
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, colour = cut))
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = cut))
+```
+
+this allows us to color the bar chart
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity))
+```
+
+this allows us to include varying colors for each bar
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill")
+```
+  
+this allows us to make all of the bars the same height 
+
+```{r} 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
+```
+  
+this allows us to place overlapping objects beside one another  
+
+
+```{r} 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), position = "jitter")
+```
+
+this allows us to add noise to each point to spread them out 
+
+## COORDINATE SYSTEMS
+
+```{r} 
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot()
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot() +
+  coord_flip()
+```
+
+coordinate flips switches the x and y axes - this allows us to make the horizontal box plots shown 
+
+```{r} 
+nz <- map_data("nz")
+
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black")
+
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") +
+  coord_quickmap()
+```
+
+this allows us to set aspect ratios correctly for maps 
+
+```{r} 
+bar <- ggplot(data = diamonds) + 
+  geom_bar(
+    mapping = aes(x = cut, fill = cut), 
+    show.legend = FALSE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()
+bar + coord_polar()
+```
+
+these polar coordinates allow us to show a connection between bar charts and a coxcomb chart
+  
+## Graphics for Communication 
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(title = "Fuel efficiency generally decreases with engine size")
+```
+
+This allows us to add labels 
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
+    caption = "Data from fueleconomy.gov"
+  )
+```
+ this allows us to add subtitles and captions 
+ 
+ 
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    colour = "Car type"
+  )
+```
+
+this allows us to replace labels for axes with longer descriptions
+
+
+ 
+```{r} 
+df <- tibble(
+  x = runif(10),
+  y = runif(10)
+)
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )
+```
+
+this allows us to add equations into the labels 
+
+ 
+```{r} 
+best_in_class <- mpg %>%
+  group_by(class) %>%
+  filter(row_number(desc(hwy)) == 1)
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_text(aes(label = model), data = best_in_class)
+```
+
+this allows us to add annotations
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_label(aes(label = model), data = best_in_class, nudge_y = 2, alpha = 0.5)
+```
+
+this allows us to add small lebsl throughout with annotations
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_point(size = 3, shape = 1, data = best_in_class) +
+  ggrepel::geom_label_repel(aes(label = model), data = best_in_class)
+```
+
+this adjusts the annotations so they do not overlap 
+
+
+```{r} 
+class_avg <- mpg %>%
+  group_by(class) %>%
+  summarise(
+    displ = median(displ),
+    hwy = median(hwy)
+  )
+#> `summarise()` ungrouping output (override with `.groups` argument)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  ggrepel::geom_label_repel(aes(label = class),
+    data = class_avg,
+    size = 6,
+    label.size = 0,
+    segment.color = NA
+  ) +
+  geom_point() +
+  theme(legend.position = "none")
+```
+
+this can be used tot add a second layer to highlight points and add labels
+
+## SCALES
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))
+```
+
+this allows us to adjust the scales 
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))
+```
+
+this allows us to change the position of the ticks on the keys
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_x_continuous(labels = NULL) +
+  scale_y_continuous(labels = NULL)
+```
+
+this allows us to suppress the loable altogether
+
+```{r} 
+presidential %>%
+  mutate(id = 33 + row_number()) %>%
+  ggplot(aes(start, id)) +
+    geom_point() +
+    geom_segment(aes(xend = end, yend = id)) +
+    scale_x_date(NULL, breaks = presidential$start, date_labels = "'%y")
+```
+
+this allows us to use breaks to highlight where obervations take place 
+
+
+```{r} 
+base <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))
+
+base + theme(legend.position = "left")
+base + theme(legend.position = "top")
+base + theme(legend.position = "bottom")
+base + theme(legend.position = "right") # the default
+```
+
+this allows us to change the layout of the legend 
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  theme(legend.position = "bottom") +
+  guides(colour = guide_legend(nrow = 1, override.aes = list(size = 4)))
+```
+
+this changes the legend to be on the bottom
+
+
+```{r} 
+ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d()
+```
+
+this allows us to view the original plot before transforming using log 
+
+
+```{r} 
+ggplot(diamonds, aes(log10(carat), log10(price))) +
+  geom_bin2d()
+```
+
+this allows us to view the log transformed plot 
+
+```{r} 
+ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d() + 
+  scale_x_log10() + 
+  scale_y_log10()
+```
+
+this allows us to view the log transformed plot with updated axis labels 
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv)) +
+  scale_colour_brewer(palette = "Set1")
+```
+
+this allows us to apply colored displays 
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = "Set1")
+```
+
+this allows us to incorporate shapes 
+
+
+```{r} 
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = "Set1")
+```
+
+This allows us to break up the plot as well as incorporate colors 
+
+
+```{r} 
+df <- tibble(
+  x = rnorm(10000),
+  y = rnorm(10000)
+)
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed()
+```
+
+this shows hexagonal points for representation, as well as a color gradient 
+

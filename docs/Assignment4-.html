@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Eliza Jane Epstein" />
+
+<meta name="date" content="2021-10-04" />
+
+<title>Assignments</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Eliza's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Assignments</h1>
+<h4 class="author">Eliza Jane Epstein</h4>
+<h4 class="date">10/04/2021</h4>
+
+</div>
+
+
+<div id="assignment-1" class="section level1">
+<h1>Assignment 1</h1>
+<p><strong>Collaborators: Carolina Herrera Figueroa, Niko Amber</strong></p>
+<div id="problem-1" class="section level3">
+<h3>Problem 1</h3>
+<p>Install the datasets package on the console below and load the data</p>
+<pre class="r"><code>dat&lt;-USArrests</code></pre>
+<p>Load the USArrests dataset and rename it <code>dat</code>. Note that this dataset comes with R, in the package datasets, so there’s no need to load data from your computer. Why is it useful to rename the dataset?</p>
+<p>Answer: It is useful to rename the data set for convenience and easy accessibility.</p>
+<pre class="r"><code>USArrests</code></pre>
+<pre><code>##                Murder Assault UrbanPop Rape
+## Alabama          13.2     236       58 21.2
+## Alaska           10.0     263       48 44.5
+## Arizona           8.1     294       80 31.0
+## Arkansas          8.8     190       50 19.5
+## California        9.0     276       91 40.6
+## Colorado          7.9     204       78 38.7
+## Connecticut       3.3     110       77 11.1
+## Delaware          5.9     238       72 15.8
+## Florida          15.4     335       80 31.9
+## Georgia          17.4     211       60 25.8
+## Hawaii            5.3      46       83 20.2
+## Idaho             2.6     120       54 14.2
+## Illinois         10.4     249       83 24.0
+## Indiana           7.2     113       65 21.0
+## Iowa              2.2      56       57 11.3
+## Kansas            6.0     115       66 18.0
+## Kentucky          9.7     109       52 16.3
+## Louisiana        15.4     249       66 22.2
+## Maine             2.1      83       51  7.8
+## Maryland         11.3     300       67 27.8
+## Massachusetts     4.4     149       85 16.3
+## Michigan         12.1     255       74 35.1
+## Minnesota         2.7      72       66 14.9
+## Mississippi      16.1     259       44 17.1
+## Missouri          9.0     178       70 28.2
+## Montana           6.0     109       53 16.4
+## Nebraska          4.3     102       62 16.5
+## Nevada           12.2     252       81 46.0
+## New Hampshire     2.1      57       56  9.5
+## New Jersey        7.4     159       89 18.8
+## New Mexico       11.4     285       70 32.1
+## New York         11.1     254       86 26.1
+## North Carolina   13.0     337       45 16.1
+## North Dakota      0.8      45       44  7.3
+## Ohio              7.3     120       75 21.4
+## Oklahoma          6.6     151       68 20.0
+## Oregon            4.9     159       67 29.3
+## Pennsylvania      6.3     106       72 14.9
+## Rhode Island      3.4     174       87  8.3
+## South Carolina   14.4     279       48 22.5
+## South Dakota      3.8      86       45 12.8
+## Tennessee        13.2     188       59 26.9
+## Texas            12.7     201       80 25.5
+## Utah              3.2     120       80 22.9
+## Vermont           2.2      48       32 11.2
+## Virginia          8.5     156       63 20.7
+## Washington        4.0     145       73 26.2
+## West Virginia     5.7      81       39  9.3
+## Wisconsin         2.6      53       66 10.8
+## Wyoming           6.8     161       60 15.6</code></pre>
+<pre class="r"><code>dat&lt;-USArrests</code></pre>
+</div>
+<div id="problem-2" class="section level3">
+<h3>Problem 2</h3>
+<p>List the variables contained in the dataset:</p>
+<p>The four variables within the dataset are Murder, Assault, Urbanpop and Rape</p>
+</div>
+<div id="problem-3" class="section level3">
+<h3>Problem 3</h3>
+<p>What type of variable (from the DVB chapter) is <code>Murder</code>?</p>
+<p>Answer: categorical</p>
+<p>What R Type of variable is it?</p>
+<p>Answer: character</p>
+</div>
+<div id="problem-4" class="section level3">
+<h3>Problem 4</h3>
+<p>What information is contained in this dataset, in general? What do the numbers mean?</p>
+<p>Answer: The data set shows the arrest rate per 100,000 in the US in 1973. The rows show each state and the columns show the type of arrest. Each number shows the amount of arrests of that type within that state per 100,000.</p>
+</div>
+<div id="problem-5" class="section level3">
+<h3>Problem 5</h3>
+<p>Draw a histogram of <code>Murder</code> with proper labels and title.</p>
+<p>I chose to do a bar chart instead due to the categorical nature of the values.</p>
+<pre class="r"><code>  state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for Murder per 100,000&quot;, 
+    main = &quot;Arrest rate for Murder in the United States in 1973&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="problem-6" class="section level3">
+<h3>Problem 6</h3>
+<p>Please summarize <code>Murder</code> quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?</p>
+<p>Answer: The mean for murder is 7.788 and the median for murder is 7.250. Mean is the average of the data (that is: if you were to add up all of the values then divide by the amount of values present). Median is the middle value (half of the values are above and half are below). If the data is well distributed, mean and median will be similar or the same, but the major differences occur when there are outliers: mean is impacted by outliers whereas median is not. In this data seet, mean and median appear rather similar. Quartiles are the data broken up into 4 parts. R gives the 1st quartile to give a sense of the values up until 25% of the data and the 3rd quartile to give values up until 75% of the data.</p>
+</div>
+<div id="problem-7" class="section level3">
+<h3>Problem 7</h3>
+<p>Repeat the same steps you followed for <code>Murder</code>, for the variables <code>Assault</code> and <code>Rape</code>. Now plot all three histograms together. You can do this by using the command <code>par(mfrow=c(3,1))</code> and then plotting each of the three.</p>
+<pre class="r"><code>  state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for assault per 100,000&quot;, 
+    main = &quot;Arrest Rate for Assault in the United States in 1973&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
+<pre class="r"><code> state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for Rape per 100,000&quot;, 
+    main = &quot;Arrest Rate for Rape in the United States in 1973&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-4-2.png" width="480" /></p>
+<pre class="r"><code>   par(mfrow=c(3,1))
+     state.names = row.names(USArrests)
+barplot(USArrests$Murder, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for Murder per 100,000&quot;, 
+    main = &quot;Arrest rate for Murder in the United States in 1973&quot;)
+
+state.names = row.names(USArrests)
+barplot(USArrests$Assault, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for assault per 100,000&quot;, 
+    main = &quot;Arrest Rate for Assault in the United States in 1973&quot;)
+
+ state.names = row.names(USArrests)
+barplot(USArrests$Rape, names.arg = state.names, las = 2, ylab = &quot;Arrest rate for Rape per 100,000&quot;, 
+    main = &quot;Arrest Rate for Rape in the United States in 1973&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
+<p>Answer: Command par allows for multiple graphs to be plotted together. This command makes this possible by defining parameters.</p>
+<p>What can you learn from plotting the histograms together?</p>
+<p>Answer: By plotting the histograms together it allows us to visually compare the rates for each. While it is useful to compare the numbers when looking at the table, plotting the values together allows for visual comparison.</p>
+</div>
+<div id="problem-8" class="section level3">
+<h3>Problem 8</h3>
+<p>What does the given code do? Explain what each line is doing.</p>
+<p>Answer: This code creates a heat map of murders in the US. That is, this is a map of the country with darker shades of blue signifying higher murder rates and lighter shades of blue portraying lower murder rates. The first line tells R that you will be making a heat map, arranging by state and filling with arrests for murder rates. The next line sets up the map itself separating by state and the final line expands the range</p>
+<p><span class="math display">\[\\[2in]\]</span></p>
+</div>
+</div>
+<div id="assignment-2" class="section level1">
+<h1>Assignment 2</h1>
+<p><strong>Collaborators: Carolina Herrera Figueroa, Niko Amber </strong></p>
+<div id="problem-1-load-data" class="section level2">
+<h2>Problem 1: Load data</h2>
+<p>Set your working directory to the folder where you downloaded the data.</p>
+<pre class="r"><code>setwd(&quot;/Users/elizaepstein/Desktop/testgithub/ElizalearnR&quot;)</code></pre>
+<p>Read the data</p>
+<pre class="r"><code>dat &lt;- read.csv(file = &#39;dat.nsduh.small.1.csv&#39;)</code></pre>
+<p>What are the dimensions of the dataset?</p>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
+## [7] &quot;irsex&quot;</code></pre>
+<pre class="r"><code>nrow(dat)</code></pre>
+<pre><code>## [1] 171</code></pre>
+<pre class="r"><code>ncol(dat) </code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>Answer: There are 7 columns and 171 rows.</p>
+</div>
+<div id="problem-2-variables" class="section level2">
+<h2>Problem 2: Variables</h2>
+<p>Describe the variables in the dataset.</p>
+<p>Answer: The variables in this dataset are the age that an individual began smoking cigarettes, the age they began drinking alcohol, their age, their sexual attraction, whether they speak english and their sex.</p>
+<p>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</p>
+<p>Answer: This data set shows the trends in substance abuse by age, sex, sexual attraction and their english language proficiency. This data was collected through the National Survey of Drug Use and Health; it is a sample of the first 1,000 individuals of the survey. The purpose of this data was to analyze trends in substance abuse. While it is not stated, these trends may be used to further understand which individuals to target for treatment.</p>
+</div>
+<div id="problem-3-age-and-gender" class="section level2">
+<h2>Problem 3: Age and gender</h2>
+<p>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</p>
+<p>Answer: The age distribution starts from 12 and goes to 65+. The codebook explains how each age is labelled a number, so “17” represents individuals who are 65 or older.</p>
+<p>Do you think this age distribution representative of the US population? Why or why not?</p>
+<p>Answer: I do believe that the age distribution is representative of the US population because it covers all ages twelve and above. Due to the fact that this survey is questioning the ages someone began using substances, it is reasonable that it begins at 12.</p>
+<p>Is the sample balanced in terms of gender? If not, are there more females or males?</p>
+<p>Answer: I believe the sample is mostly balanced in terms of gender, but there are slightly more females. As seen in the codebook, the sample consists of 47.72% male and 52.28% females.</p>
+<p>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</p>
+<pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = &quot;Stacked barchart&quot;,
+        xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Answer: This plot shows the frequency of sex of the respondent by age. For most of the younger age groups there seems to be more female respondents then the group between eight to twelve show more male respondents. Group 15 had the most respondents and seems to show a pretty even split between gendeers.</p>
+</div>
+<div id="problem-4-substance-use" class="section level2">
+<h2>Problem 4: Substance use</h2>
+<p>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</p>
+<p>Answer: Of the three substances included individuals tend to use alcohol the youngest.</p>
+</div>
+<div id="problem-5-sexual-attraction" class="section level2">
+<h2>Problem 5: Sexual attraction</h2>
+<p>What does the distribution of sexual attraction look like? Is this what you expected?</p>
+<pre class="r"><code>counts&lt;- table(dat$sexatract)
+barplot(counts,main= &quot;Sexual Attraction&quot;, xlab=&quot;categories&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Answer: The distribution of sexual attraction is heavily weighted towards number 1 which indicated heterosexuality. I was not surprised by there being the greatest weight on heterosexuality, but I was slightly surprised quite how extreme the difference is.</p>
+<p>What is the distribution of sexual attraction by gender?</p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
+barplot(counts,main= &quot;Sexual Attraction by Gender&quot;, xlab=&quot;categories&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>barplot(counts, col=c(&quot;red&quot;, &quot;blue&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p>Answer: The distribution of sexual attraction by gender is intriguing to me because the first group (strongly heterosexual) appers mostly weighted towards males. The group showing bisexuality is heavily weighted towards females. The group identifying as homosexual is mostly male. The groups not knowing or leaving blank are all female and the group skipping the question is mostly male.</p>
+</div>
+<div id="problem-6-english-speaking" class="section level2">
+<h2>Problem 6: English speaking</h2>
+<p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</p>
+<pre class="r"><code>counts&lt;- table(dat$speakengl)
+barplot(counts,main= &quot;English Language Proficiency&quot;, xlab=&quot;categories&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Answer: The distribution of english speaking proficiency is heavily weighted towards the number 1 which indicates being able to speak english very well. I was not surpsied by this within the sample</p>
+<p>Are there more English speaker females or males?</p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$speakengl)
+barplot(counts, col=c(&quot;purple&quot;, &quot;blue&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Answer: For those that speak english very well there is a somewhat even split between the sexes, but there are overall more females. That said, there are more males than females who answered that they speak english “well”</p>
+</div>
+</div>
+<div id="exam-1" class="section level1">
+<h1>Exam 1</h1>
+<pre class="r"><code>setwd(&quot;/Users/elizaepstein/Desktop/testgithub/ElizalearnR&quot;)
+dat &lt;- read.csv(file=&#39;fatal-police-shootings-data.csv&#39;)</code></pre>
+<div id="problem-1-10-points" class="section level2">
+<h2>Problem 1 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the dataset. This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a> . Write two sentences (max.) about this.</li>
+</ol>
+<p>This dataset describes fatal police shootings since 2015 including information about the victim such as race, gender, whether they were armed, the city and signs of mental illenss.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many observations are there in the data frame?</li>
+</ol>
+<pre class="r"><code>summary(dat)</code></pre>
+<pre><code>##        id           name               date           manner_of_death   
+##  Min.   :   3   Length:6594        Length:6594        Length:6594       
+##  1st Qu.:1860   Class :character   Class :character   Class :character  
+##  Median :3662   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :3651                                                           
+##  3rd Qu.:5437                                                           
+##  Max.   :7194                                                           
+##                                                                         
+##     armed                age           gender              race          
+##  Length:6594        Min.   : 6.00   Length:6594        Length:6594       
+##  Class :character   1st Qu.:27.00   Class :character   Class :character  
+##  Mode  :character   Median :35.00   Mode  :character   Mode  :character  
+##                     Mean   :37.12                                        
+##                     3rd Qu.:45.00                                        
+##                     Max.   :91.00                                        
+##                     NA&#39;s   :308                                          
+##      city              state           signs_of_mental_illness
+##  Length:6594        Length:6594        Length:6594            
+##  Class :character   Class :character   Class :character       
+##  Mode  :character   Mode  :character   Mode  :character       
+##                                                               
+##                                                               
+##                                                               
+##                                                               
+##  threat_level           flee           body_camera          longitude      
+##  Length:6594        Length:6594        Length:6594        Min.   :-160.01  
+##  Class :character   Class :character   Class :character   1st Qu.:-112.09  
+##  Mode  :character   Mode  :character   Mode  :character   Median : -94.31  
+##                                                           Mean   : -97.16  
+##                                                           3rd Qu.: -83.12  
+##                                                           Max.   : -67.87  
+##                                                           NA&#39;s   :314      
+##     latitude     is_geocoding_exact
+##  Min.   :19.50   Length:6594       
+##  1st Qu.:33.48   Class :character  
+##  Median :36.09   Mode  :character  
+##  Mean   :36.66                     
+##  3rd Qu.:40.00                     
+##  Max.   :71.30                     
+##  NA&#39;s   :314</code></pre>
+<pre class="r"><code>ncol(dat)</code></pre>
+<pre><code>## [1] 17</code></pre>
+<pre class="r"><code>nrow(dat)</code></pre>
+<pre><code>## [1] 6594</code></pre>
+<p>There are 6594 cases observed with 17 categories used to describe each case.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Look at the names of the variables in the data frame. Describe what “body_camera”, “flee”, and “armed” represent, according to the codebook. Again, only write one sentence (max) per variable.</li>
+</ol>
+<p>body camera: This tells whether the police officer was wearing a body camera (as true or false)</p>
+<p>flee: This tells whether the victim attempted to flee and how (by foot, by car or not fleeing)</p>
+<p>armed: this tells whether the victim was armed with a weapon and what type (gun, shovel, toy weapon etc. )</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>What are three weapons that you are surprised to find in the “armed” variable? Make a table of the values in “armed” to see the options.</li>
+</ol>
+<pre class="r"><code>table(dat$armed)</code></pre>
+<pre><code>## 
+##                                                   air conditioner 
+##                              207                                1 
+##                       air pistol                   Airsoft pistol 
+##                                1                                3 
+##                               ax                         barstool 
+##                               24                                1 
+##                     baseball bat          baseball bat and bottle 
+##                               20                                1 
+## baseball bat and fireplace poker           baseball bat and knife 
+##                                1                                1 
+##                            baton                           BB gun 
+##                                6                               15 
+##               BB gun and vehicle                     bean-bag gun 
+##                                1                                1 
+##                      beer bottle                       binoculars 
+##                                3                                1 
+##                     blunt object                           bottle 
+##                                5                                1 
+##                    bow and arrow                       box cutter 
+##                                1                               13 
+##                            brick              car, knife and mace 
+##                                2                                1 
+##                          carjack                            chain 
+##                                1                                3 
+##                        chain saw                         chainsaw 
+##                                2                                1 
+##                            chair              claimed to be armed 
+##                                4                                1 
+##               contractor&#39;s level                   cordless drill 
+##                                1                                1 
+##                         crossbow                          crowbar 
+##                                9                                5 
+##                        fireworks                         flagpole 
+##                                1                                1 
+##                       flashlight                      garden tool 
+##                                2                                2 
+##                      glass shard                          grenade 
+##                                4                                1 
+##                              gun                      gun and car 
+##                             3798                               12 
+##                    gun and knife                  gun and machete 
+##                               22                                3 
+##                    gun and sword                  gun and vehicle 
+##                                1                               17 
+##              guns and explosives                           hammer 
+##                                3                               18 
+##                       hand torch                          hatchet 
+##                                1                               14 
+##                  hatchet and gun                         ice pick 
+##                                2                                1 
+##                incendiary device                            knife 
+##                                2                              955 
+##                knife and vehicle                 lawn mower blade 
+##                                1                                2 
+##                          machete                  machete and gun 
+##                               51                                1 
+##                     meat cleaver                  metal hand tool 
+##                                6                                2 
+##                     metal object                       metal pipe 
+##                                5                               16 
+##                       metal pole                       metal rake 
+##                                4                                1 
+##                      metal stick                       microphone 
+##                                3                                1 
+##                       motorcycle                         nail gun 
+##                                1                                1 
+##                              oar                       pellet gun 
+##                                1                                3 
+##                              pen                     pepper spray 
+##                                1                                2 
+##                         pick-axe                    piece of wood 
+##                                4                                7 
+##                             pipe                        pitchfork 
+##                                7                                2 
+##                             pole                   pole and knife 
+##                                3                                2 
+##                  railroad spikes                             rock 
+##                                1                                7 
+##                    samurai sword                         scissors 
+##                                4                                9 
+##                      screwdriver                     sharp object 
+##                               16                               14 
+##                           shovel                            spear 
+##                                7                                2 
+##                          stapler              straight edge razor 
+##                                1                                5 
+##                            sword                            Taser 
+##                               23                               34 
+##                        tire iron                       toy weapon 
+##                                4                              226 
+##                          unarmed                     undetermined 
+##                              421                              188 
+##                   unknown weapon                          vehicle 
+##                               82                              213 
+##                  vehicle and gun              vehicle and machete 
+##                                8                                1 
+##                    walking stick                       wasp spray 
+##                                1                                1 
+##                           wrench 
+##                                1</code></pre>
+<p>I am surprised to see air conditioner, flashlight and microphone listed as weapons (among other peculiar options).</p>
+</div>
+<div id="problem-2-10-points" class="section level2">
+<h2>Problem 2 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the age distribution of the sample. Is this what you would expect to see?</li>
+</ol>
+<pre class="r"><code>counts &lt;- table(dat$age)
+barplot(counts, col=c(&quot;pink&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>summary(dat$age)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    6.00   27.00   35.00   37.12   45.00   91.00     308</code></pre>
+<p>The ages range from 6 (minimum) to 91 (maximum) with a mean of 37.12 and a median of 35. The mean and median are what I would expect to see, but I was surpised by how high and low the data gets: I would not expect to see a 6 year old or a 91 year old among this group. It is also crucial to note that there are 308 values listed as NA.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.</li>
+</ol>
+<p>To understand the “center” of the age distribution, I would choose median because that is the middle value which has half above and half below. Unlike mean, median is not affected by outliers. The median is 35.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Describe the gender distribution of the sample. Do you find this surprising?</li>
+</ol>
+<pre class="r"><code>counts &lt;- table(dat$gender)
+barplot(counts, col=c(&quot;yellow&quot;,&quot;gray&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>table(dat$gender)</code></pre>
+<pre><code>## 
+##         F    M 
+##    3  293 6298</code></pre>
+<p>There are significantly more males than females, as shown in the bar chart.The table shows that there are 293 females and 6298 males. I am not surprised by this given that the vast majority of fatal police shootings that we hear about on the news are male. That said, this is slightly more extreme than I was expecting.</p>
+</div>
+<div id="problem-3-10-points" class="section level2">
+<h2>Problem 3 (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</li>
+</ol>
+<pre class="r"><code>table(dat$body_camera)</code></pre>
+<pre><code>## 
+## False  True 
+##  5684   910</code></pre>
+<p>Of the 6594 listed, 910 police officers had body cameras. This is 13.8% of all listed. This is much lower than I would hope, but I am not surprised by this value.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>In how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?</li>
+</ol>
+<pre class="r"><code>table(dat$flee)</code></pre>
+<pre><code>## 
+##                     Car        Foot Not fleeing       Other 
+##         491        1058         845        3952         248</code></pre>
+<p>Between fleeing by car or by foot, there are 1903 victims who fled. Excluding the missing values and the “other” there are 5855 reported values which gave clear answers or fleeing or not. Of the 5855 reported cases, the amount who fled make up 35.5% of the victims. This is lower than I would expect. The left most column in the table shows the amount of missing values: 491. The right most column shows “other”: 248. That said, when analyzing fleeing vs not fleeing, I felt it was most useful to look at the 5855 cases who either reported “not fleeing” or reported the mode of fleeing “car” or “foot”.</p>
+</div>
+<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level2">
+<h2>Problem 4 (10 points) - Answer only one of these (a or b).</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the relationship between the variables “body camera” and “flee” using a stacked barplot. What can you conclude from this relationship?</li>
+</ol>
+<p><em>Hint 1: The categories along the x-axis are the options for “flee”, each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).</em></p>
+<p><em>Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
+<pre class="r"><code>counts &lt;- table(dat$body_camera, dat$flee)
+barplot(counts,main= &quot;Body camera by fleeing&quot;, xlab=&quot;categories&quot;, col=c(&quot;red&quot;, &quot;blue&quot;), legend=TRUE)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Of the groups for fleeing, the largest proportion of cases in which the police were wearing body cameras falls under the case of the victim not fleeing. Each of the groups shows significantly more cases in which the police officer was not wearing a body camera. The left most bar shows missing values. While it is intriguing to view that the largest proportion of cases in which police officers were wearing body cameras falls under the case in which the victim was not fleeing, it is crucial to note that this cannot be seen as a causation (it cannot be said that the victim not fleeing means that the police officer will wear a camera)</p>
+</div>
+<div id="extra-credit-10-points" class="section level2">
+<h2>Extra credit (10 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>What does this code tell us?</li>
+</ol>
+<pre class="r"><code>mydates &lt;- as.Date(dat$date)
+head(mydates)
+(mydates[length(mydates)] - mydates[1])</code></pre>
+<p>This code is telling us the spread of the dates: showing that the difference between the first date listed and the last date listed is 2458 days.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?</li>
+</ol>
+<p>I believe that police killings may be mislabelled or underreported due to police departments protecting themselves. As shown in the data, a very low percentage are wearing body cameras during incidences, so police officers can easily get away with mislabelling these cases.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data?</li>
+</ol>
+<p>There are 491 missing values in problem 4. I do not believe that is all that is missing from the data.</p>
+</div>
+</div>
+<div id="assignment-3" class="section level1">
+<h1>Assignment 3</h1>
+<p>Collaborators: Carolina Herrera Figueroa</p>
+<p>This assignment is due on Canvas on Wednesday 10/27/2021 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.</p>
+<p>Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.</p>
+<p>Save the file (found on Canvas) crime_simple.txt to the same folder as this file (your Rmd file for Assignment 3).</p>
+<p>Load the data.</p>
+<pre class="r"><code>library(readr)
+library(knitr)
+dat.crime &lt;- read_delim(&quot;crime_simple.txt&quot;, delim = &quot;\t&quot;)</code></pre>
+<pre><code>## Rows: 47 Columns: 14</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;\t&quot;
+## dbl (14): R, Age, S, Ed, Ex0, Ex1, LF, M, N, NW, U1, U2, W, X</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>show_col_types = FALSE</code></pre>
+<p>This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given.</p>
+<p>Here is the codebook:</p>
+<p>R: Crime rate: # of offenses reported to police per million population</p>
+<p>Age: The number of males of age 14-24 per 1000 population</p>
+<p>S: Indicator variable for Southern states (0 = No, 1 = Yes)</p>
+<p>Ed: Mean of years of schooling x 10 for persons of age 25 or older</p>
+<p>Ex0: 1960 per capita expenditure on police by state and local government</p>
+<p>Ex1: 1959 per capita expenditure on police by state and local government</p>
+<p>LF: Labor force participation rate per 1000 civilian urban males age 14-24</p>
+<p>M: The number of males per 1000 females</p>
+<p>N: State population size in hundred thousands</p>
+<p>NW: The number of non-whites per 1000 population</p>
+<p>U1: Unemployment rate of urban males per 1000 of age 14-24</p>
+<p>U2: Unemployment rate of urban males per 1000 of age 35-39</p>
+<p>W: Median value of transferable goods and assets or family income in tens of $</p>
+<p>X: The number of families per 1000 earning below 1/2 the median income</p>
+<p>We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related.</p>
+<p>##1. How many observations are there in the dataset? To what does each observation correspond?</p>
+<pre class="r"><code>nrow(dat.crime)</code></pre>
+<pre><code>## [1] 47</code></pre>
+<pre class="r"><code>ncol(dat.crime)</code></pre>
+<pre><code>## [1] 14</code></pre>
+<pre class="r"><code>head(dat.crime)</code></pre>
+<pre><code>## # A tibble: 6 × 14
+##       R   Age     S    Ed   Ex0   Ex1    LF     M     N    NW    U1    U2     W
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  79.1   151     1    91    58    56   510   950    33   301   108    41   394
+## 2 164.    143     0   113   103    95   583  1012    13   102    96    36   557
+## 3  57.8   142     1    89    45    44   533   969    18   219    94    33   318
+## 4 197.    136     0   121   149   141   577   994   157    80   102    39   673
+## 5 123.    141     0   121   109   101   591   985    18    30    91    20   578
+## 6  68.2   121     0   110   118   115   547   964    25    44    84    29   689
+## # … with 1 more variable: X &lt;dbl&gt;</code></pre>
+<p>ANSWER: There are 14 columns and 47 rows, with a total of 658 observations in the data set. Each row represents a state, with columns indicating statistics such as number of offenses reported to police per million, unemployment rates, expenditure of police etc.</p>
+<p>##2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?</p>
+<pre class="r"><code>library(datasets)
+plot(dat.crime$Ed, dat.crime$R,  main=&quot;Relationship between Reported Crime Rate and Level of Education&quot;,
+    xlab=&quot;Level of Education&quot;, ylab=&quot;Reported Crime Rate&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-26-1.png" width="576" /></p>
+<pre class="r"><code>cor(dat.crime$Ed, dat.crime$R)</code></pre>
+<pre><code>## [1] 0.3228349</code></pre>
+<p>ANSWER: The correlation between the two variables is 0.3228. Given that correlations range from -1 to 1 this shows a rather small positive correlation. That is, there is a slightly positive relationship between the level of education and the number of reported crimes. It is reasonable that this number is relatively low though because this relationship is not a direct causation.</p>
+<p>##3. Regress reported crime rate (y) on average education (x) and call this linear model <code>crime.lm</code> and write the summary of the regression by using this code, which makes it look a little nicer</p>
+<pre class="r"><code>reg.output &lt;- lm(formula = R ~ Ed, data=dat.crime)</code></pre>
+<pre class="r"><code>summary(reg.output)</code></pre>
+<p>##4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)</p>
+<pre class="r"><code>plot(dat.crime$Ed, reg.output$residuals, ylim=c(-15,15), main=&quot;Residuals vs. x&quot;, xlab=&quot;x, Average Education&quot;, ylab=&quot;Residuals&quot;)
+abline(h = 0, lty=&quot;dashed&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p>ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can be said that for this data set the linearity assumption holds true.</p>
+<pre class="r"><code>plot(reg.output, which=1)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>ANSWER: Given that neither the residuals vs X nor the residuals vs fitted show clear patterns, it can be said that the independence assumption is satisfied.</p>
+<pre class="r"><code>plot(reg.output, which=3)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>ANSWER: The third assumption, equal variance, holds true because there does not seem to be a trend in the red line: it appears mostly flat.</p>
+<pre class="r"><code>plot(reg.output, which=2)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>ANSWER: The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.</p>
+<p>##5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?</p>
+<p>ANSWER: The relationship between reported crime and average education is statistically significant given that the p-value is less than .05. The estimated coefficient of the slope is 1.11. The Standard error is 0.4787 and the p value is 0.0288. T tests are used to determine whether a relationship between two values is due to chance/random or if it is a true relationship. To be statistically significant means that the relationship is real and not due to chance. The null hypothesis can be rejected.</p>
+<p>##6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?</p>
+<p>ANSWER: Given the slope of 1.116, for every unit increase in education, reported crime rate increases by 1.116 reports per million per state.</p>
+<p>##7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?</p>
+<p>ANSWER: It cannot be concluded that if individuals were to reveive more education then crime will be reported more often. Using this one data set does not mean that the results are generalizable. While this data may support the hypothesis that when individuals receive more education more crime will be reported, it cannot be used to full determine a causation.</p>
+</div>
+<div id="exam-2" class="section level1">
+<h1>Exam 2</h1>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
+<li><p>Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.</p></li>
+<li><p>Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: <strong>“Does having more funding in a police department lead to fewer incidents of police brutality?”</strong></p></li>
+<li><p>Codebook:</p></li>
+</ol>
+<ul>
+<li>funds: How much funding the police department received in that year in millions of dollars.</li>
+<li>po.brut: How many incidents of police brutality were reported by the department that year.</li>
+<li>po.dept.code: Police department code</li>
+</ul>
+<div id="problem-1-eda-10-points" class="section level2">
+<h2>Problem 1: EDA (10 points)</h2>
+<p>Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.</p>
+<pre class="r"><code>dat &lt;- read.csv(file = &#39;sim.data.csv&#39;)
+summary(dat)</code></pre>
+<pre><code>##   po.dept.code        funds          po.brut     
+##  Min.   :  1.00   Min.   :21.40   Min.   : 0.00  
+##  1st Qu.: 50.75   1st Qu.:51.67   1st Qu.:14.00  
+##  Median :100.50   Median :59.75   Median :19.00  
+##  Mean   :100.50   Mean   :61.04   Mean   :18.14  
+##  3rd Qu.:150.25   3rd Qu.:72.17   3rd Qu.:22.00  
+##  Max.   :200.00   Max.   :99.70   Max.   :29.00</code></pre>
+<p>This simulated data set describes police departments funding (in millions of dollars) as well as number of cases of police brutality. The minimum amount of funding (of the departments included) is 21.4 million dollars and the maximum is 99.70 million with a mean of 61.04 million. The minimum number of incidents police brutality is 0 and the maximum is 29, with a mean of 18.14. There is a scatterplot to show a visual representation of this data included in problem 2c.</p>
+</div>
+<div id="problem-2-linear-regression-30-points" class="section level2">
+<h2>Problem 2: Linear regression (30 points)</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Perform a simple linear regression to answer the question of interest. To do this, name your linear model “reg.output” and write the summary of the regression by using “summary(reg.output)”.</li>
+</ol>
+<pre class="r"><code>reg.output &lt;- lm(formula= po.brut~funds, data = dat)
+summary (reg.output)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = po.brut ~ funds, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.9433 -0.2233  0.2544  0.5952  1.1803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 40.543069   0.282503  143.51   &lt;2e-16 ***
+## funds       -0.367099   0.004496  -81.64   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9464 on 198 degrees of freedom
+## Multiple R-squared:  0.9712, Adjusted R-squared:  0.971 
+## F-statistic:  6666 on 1 and 198 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>cor(dat$funds, dat$po.brut)</code></pre>
+<pre><code>## [1] -0.9854706</code></pre>
+<p>Answer: In attempting to answer the question of whether increased funding leads to fewer cases of police brutality a linear regression model was run. The funding was made as the x axis with incidents of police brutality as the Y. The correlation value is -0.985 which is a strong negative correlation.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain.</li>
+</ol>
+<p>The slope for this data is -3.671e-01 meaning as funding increases the line representing police brutality does show a decreasing slope. The standard error is 4.49e-03. The P value is 2.2e-16 which is much lower than 0.05 so a statistically significant difference is shown. The P value is used to indicate whether the relationship between these two groups is due to chance or whether the change in one is related to the change in another. This p value shows that the data are related and that the change in incidents of police brutality is related to the change in funding. That is, we can reject the null.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:</li>
+</ol>
+<pre class="r"><code>plot(dat$funds, dat$po.brut, main = &quot;Scatterplot comparing Police Funding and Incidents of Police Brutality&quot; )
+abline(reg.output, col = &quot;red&quot;, lwd=2)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-35-1.png" width="384" /> Does the line look like a good fit? Why or why not?</p>
+<p>Overall the line generally looks like a good fit, but when examining closely, it does appear to have issues on the ends. Ideally, the red line would run through the data points, but that does not appear to be the case. On the ends the points seem to be to the left of the line and in the middle the points appear to be to the right of the line. Overall there is more of a curve to the line than ideal.</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?</li>
+</ol>
+<pre class="r"><code>plot(dat$funds, reg.output$residuals, ylim=c(-15,15), main=&quot;Residuals vs. x&quot;, xlab=&quot;Police Department Funding&quot;, ylab=&quot;Residuals&quot;)
+abline(h = 0, lty=&quot;dashed&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>ANSWER: For residuals vs X, if the linearity assumption is satisfied there should be no pattern around the horizontal line, so it can not be said that for this data set the linearity assumption holds true; this is a pattern.</p>
+<pre class="r"><code>plot(reg.output, which=1)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>ANSWER: Given that the residuals vs fitted seems to show a curvature, it cannot be said that the independence assumption is true.</p>
+<pre class="r"><code>plot(reg.output, which=3)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>ANSWER: The third assumption, equal variance, is not satisfied because the line is not mostly flat; there appears to be curvature.</p>
+<pre class="r"><code>plot(reg.output, which=2)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p>The normal QQ plot shows that the last assumption is not fully satisfied because while the points appear gathered on the line in the middle range, the values less than -1 and greater than 1 appear further from the line than ideal.</p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Answer the question of interest based on your analysis.</li>
+</ol>
+<p>Within this data set it does appear that as the funding increases, the incidents of police brutality are decreasing. The P value indicates that there is statistical significance and that this change is not merely due to chance. That said, while this data may support the idea that increased funding may lead to decreased incidents of police brutality, this one simulated data set of 200 departments cannot be used to make a general conclusion. Furthermore, given that the assumptions are not satisfied, there seem to be issues in this regression. That is, overall it cannot be concluded that an increase in funding will lead to a decrease in police brutality.</p>
+</div>
+<div id="problem-3-data-ethics-10-points" class="section level2">
+<h2>Problem 3: Data ethics (10 points)</h2>
+<p>Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?</p>
+<p>Following the lecture on data ethics, there are certain aspects of the data set that do not worry me ethically and others that do. For example, two major concerns in terms of ethics are privacy (individual) and confidentiality (data). This data does not release any privatized information about the incidents of police brutality so I believe it is ethically satisfied in that way.It would concern me if it were collected with names of victims. That said, the part of this that rankles my ethics is the possibility of this data being used to make conclusions about this issue. This sample size of 200 police departments cannot be used to make generalized assumptions and imply that police departments should receive more funding. First off, the assumptions do not all seem to be satisfied, so there are issues with this correlation. Furthermore, this notes situations of reported cases of police brutality, so there may be MANY incidents of police brutality that are not accounted for. In terms of data collection, I would be concerned in terms of how the reports were made: if the police departments were reporting the data themselves they would want to show both lower incidents of police brutality but also they would want this correlation to be true in order to recieve more funding. For that reason, I would be worried about the accuracy of the collection.</p>
+</div>
+</div>
+<div id="assignment-4" class="section level1">
+<h1>Assignment 4</h1>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.5     ✓ stringr 1.4.0
+## ✓ tidyr   1.1.4     ✓ forcats 0.5.1
+## ✓ purrr   0.3.4</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>this allows us to load the data. This data analysis is asking about the relationship of fuel efficiency and engine size.</p>
+<pre class="r"><code>ggplot2::mpg</code></pre>
+<pre><code>## # A tibble: 234 × 11
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+##  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+##  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+##  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+##  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+##  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+##  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+##  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+## 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+## # … with 224 more rows</code></pre>
+<p>this allows us to create a data table</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) </code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-42-1.png" width="672" /> this allows us to create a mapped ggplot</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, size =class))</code></pre>
+<pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-43-1.png" width="672" /> This allows us to create a ggplot distinguishing by size</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, alpha =class))</code></pre>
+<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-44-1.png" width="672" /> This allows us to create a ggplot distinguishing by transparency</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x=displ, y=hwy, shape =class))</code></pre>
+<pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 7. Consider
+## specifying shapes manually if you must have them.</code></pre>
+<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p>This allows us to create a ggplot distinguishing by shape</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = &quot;blue&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>this allows us to create a ggplot changing all the points to blue</p>
+<p>##WHAT’S GONE WRONG WITH THIS CODE?</p>
+<p>ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = “blue”))</p>
+<p>ANSWER: this code is including color blue in the parenthesis - it should be on the outside of the aes parenthesis</p>
+<p>ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))</p>
+<p>ANSWER: The + is at the start of the second line instead of the end of the first</p>
+<p>##FACETS</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p>This allows us to break up the plots by each variable</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p>this allows us to facet the plot combining both variables throughout</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-49-2.png" width="672" /></p>
+<p>This allows us to not facet by column then not facet by row</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>This allows us to create a line that traces the data</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>This allows us to set different types of lines to traces each of the variables</p>
+<pre class="r"><code>ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg) +
+  geom_smooth(
+    mapping = aes(x = displ, y = hwy, color = drv),
+    show.legend = FALSE
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-52-3.png" width="672" /></p>
+<p>This allows us to create multiple geoms in the same plot</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p>this allows us to create both a smooth line that fits the data and show the scatter plot</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p>This allows us to show both the smooth line and the scatterplot as well as incorporate color</p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == &quot;subcompact&quot;), se = FALSE)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p>This allows us to do the same as above but specify by layer.</p>
+<div id="stastical-transformations" class="section level2">
+<h2>STASTICAL TRANSFORMATIONS</h2>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>This is a bar chart of the diamond cuts with x being cut and y being counts which is calculated through the bar chart algorithm</p>
+<pre class="r"><code>demo &lt;- tribble(
+  ~cut,         ~freq,
+  &quot;Fair&quot;,       1610,
+  &quot;Good&quot;,       4906,
+  &quot;Very Good&quot;,  12082,
+  &quot;Premium&quot;,    13791,
+  &quot;Ideal&quot;,      21551
+)
+
+ggplot(data = demo) +
+  geom_bar(mapping = aes(x = cut, y = freq), stat = &quot;identity&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p>This allows us to overide the default from count to identity (which maps the height of the bars to the raw y variables)</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = stat(prop), group = 1))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p>this allows us to override the default mapping from transformed variables to aesthetics</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p>this allows us to summarize the y values for each x value</p>
+</div>
+<div id="position-adjustments" class="section level2">
+<h2>POSITION ADJUSTMENTS</h2>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, colour = cut))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = cut))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-61-2.png" width="672" /></p>
+<p>this allows us to color the bar chart</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p>this allows us to include varying colors for each bar</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = &quot;fill&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p>this allows us to make all of the bars the same height</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = &quot;dodge&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p>this allows us to place overlapping objects beside one another</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), position = &quot;jitter&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p>this allows us to add noise to each point to spread them out</p>
+</div>
+<div id="coordinate-systems" class="section level2">
+<h2>COORDINATE SYSTEMS</h2>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot() +
+  coord_flip()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<p>coordinate flips switches the x and y axes - this allows us to make the horizontal box plots shown</p>
+<pre class="r"><code>nz &lt;- map_data(&quot;nz&quot;)
+
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = &quot;white&quot;, colour = &quot;black&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = &quot;white&quot;, colour = &quot;black&quot;) +
+  coord_quickmap()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
+<p>this allows us to set aspect ratios correctly for maps</p>
+<pre class="r"><code>bar &lt;- ggplot(data = diamonds) + 
+  geom_bar(
+    mapping = aes(x = cut, fill = cut), 
+    show.legend = FALSE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<pre class="r"><code>bar + coord_polar()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
+<p>these polar coordinates allow us to show a connection between bar charts and a coxcomb chart</p>
+</div>
+<div id="graphics-for-communication" class="section level2">
+<h2>Graphics for Communication</h2>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(title = &quot;Fuel efficiency generally decreases with engine size&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>This allows us to add labels</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = &quot;Fuel efficiency generally decreases with engine size&quot;,
+    subtitle = &quot;Two seaters (sports cars) are an exception because of their light weight&quot;,
+    caption = &quot;Data from fueleconomy.gov&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-70-1.png" width="672" /> this allows us to add subtitles and captions</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = &quot;Engine displacement (L)&quot;,
+    y = &quot;Highway fuel economy (mpg)&quot;,
+    colour = &quot;Car type&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p>this allows us to replace labels for axes with longer descriptions</p>
+<pre class="r"><code>df &lt;- tibble(
+  x = runif(10),
+  y = runif(10)
+)
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p>this allows us to add equations into the labels</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_text(aes(label = model), data = best_in_class)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p>this allows us to add annotations</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_label(aes(label = model), data = best_in_class, nudge_y = 2, alpha = 0.5)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>this allows us to add small lebsl throughout with annotations</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_point(size = 3, shape = 1, data = best_in_class) +
+  ggrepel::geom_label_repel(aes(label = model), data = best_in_class)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p>this adjusts the annotations so they do not overlap</p>
+<pre class="r"><code>class_avg &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  summarise(
+    displ = median(displ),
+    hwy = median(hwy)
+  )
+#&gt; `summarise()` ungrouping output (override with `.groups` argument)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  ggrepel::geom_label_repel(aes(label = class),
+    data = class_avg,
+    size = 6,
+    label.size = 0,
+    segment.color = NA
+  ) +
+  geom_point() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p>this can be used tot add a second layer to highlight points and add labels</p>
+</div>
+<div id="scales" class="section level2">
+<h2>SCALES</h2>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>this allows us to adjust the scales</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p>this allows us to change the position of the ticks on the keys</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_x_continuous(labels = NULL) +
+  scale_y_continuous(labels = NULL)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p>this allows us to suppress the loable altogether</p>
+<pre class="r"><code>presidential %&gt;%
+  mutate(id = 33 + row_number()) %&gt;%
+  ggplot(aes(start, id)) +
+    geom_point() +
+    geom_segment(aes(xend = end, yend = id)) +
+    scale_x_date(NULL, breaks = presidential$start, date_labels = &quot;&#39;%y&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p>this allows us to use breaks to highlight where obervations take place</p>
+<pre class="r"><code>base &lt;- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))
+
+base + theme(legend.position = &quot;left&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;top&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-81-2.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-81-3.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;right&quot;) # the default</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-81-4.png" width="672" /></p>
+<p>this allows us to change the layout of the legend</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  theme(legend.position = &quot;bottom&quot;) +
+  guides(colour = guide_legend(nrow = 1, override.aes = list(size = 4)))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p>this changes the legend to be on the bottom</p>
+<pre class="r"><code>ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p>this allows us to view the original plot before transforming using log</p>
+<pre class="r"><code>ggplot(diamonds, aes(log10(carat), log10(price))) +
+  geom_bin2d()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p>this allows us to view the log transformed plot</p>
+<pre class="r"><code>ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d() + 
+  scale_x_log10() + 
+  scale_y_log10()</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p>this allows us to view the log transformed plot with updated axis labels</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv)) +
+  scale_colour_brewer(palette = &quot;Set1&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p>this allows us to apply colored displays</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = &quot;Set1&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>this allows us to incorporate shapes</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = &quot;Set1&quot;)</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p>This allows us to break up the plot as well as incorporate colors</p>
+<pre class="r"><code>df &lt;- tibble(
+  x = rnorm(10000),
+  y = rnorm(10000)
+)
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed()</code></pre>
+<pre><code>## Warning: Computation failed in `stat_binhex()`:
+## The `hexbin` package is required for `stat_binhex()`</code></pre>
+<p><img src="Assignment4-_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p>this shows hexagonal points for representation, as well as a color gradient</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
