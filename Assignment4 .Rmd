@@ -1152,7 +1152,7 @@ this shows hexagonal points for representation, as well as a color gradient
 install.packages("viridis") 
 ```
 
-thsi allows us to install the package to create vignettes
+this allows us to install the package to create vignettes
 
 
 ```{r} 
